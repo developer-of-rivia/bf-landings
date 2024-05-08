@@ -224,13 +224,88 @@ document.getElementById('hide_popup')
     // и сразу же скрываем окно
     overlay_div.style.display='none';
 });;
-    /* ---------------------- SERVICES ---------------------------- */
-    /* services tabs */
-const tabsService = new GraphTabs('service-tab', {
+    /* ---------------------- PROT TABS ---------------------------- */
+    const tabs1 = new GraphTabs('tab', {
     isChanged: (tabs) => {
       console.log(tabs);
     }
 });;
+    /* ---------------------- SERVICES ---------------------------- */
+    let serviceTabsSelectHeader = document.querySelector('.service__tabs-select-header');
+let serviceTabsSelectBody = document.querySelector('.service__tabs-select-body');
+let serviceTabsSelectDesc = document.querySelector('.service__tabs-select-desc');
+let thisTabClicked;
+
+serviceTabsSelectHeader.addEventListener('click', function(){
+  serviceTabsSelectBody.classList.toggle('service__tabs-select-body_active');
+  serviceTabsSelectHeader.classList.toggle('service__tabs-select-header_active');
+});
+
+const tabsService = new GraphTabs('service-tab', {
+    isChanged: (tabs) => {
+      clickedTabContent = document.querySelector('.service .tabs__nav-btn--active').innerHTML;
+      clickedTabDescription = document.querySelector('.service .tabs__panel--active .service__tabs-item-title').innerHTML;
+      serviceTabsSelectHeader.innerHTML = clickedTabContent;
+      serviceTabsSelectDesc.innerHTML = clickedTabDescription;
+
+      serviceTabsSelectBody.classList.remove('service__tabs-select-body_active');
+      serviceTabsSelectHeader.classList.remove('service__tabs-select-header_active');
+
+      if (document.documentElement.clientWidth < 768) {
+        document.querySelector('.service').scrollIntoView();
+      }
+    }
+});
+
+
+
+
+if (document.documentElement.clientWidth < 768) {
+  const sAccordions = document.querySelectorAll('.service__item');
+  sAccordions.forEach(el => {
+      el.addEventListener('click', (e) => {
+          const self = e.currentTarget;
+          const control = self.querySelector('.service__item-top');
+          const content = self.querySelector('.service__item-content');
+  
+          self.classList.toggle('service__item_open');
+  
+          // если открыт аккордеон
+          if (self.classList.contains('service__item_open')) {
+              control.setAttribute('aria-expanded', true);
+              content.setAttribute('aria-hidden', false);
+              content.style.maxHeight = content.scrollHeight + 'px';
+          } else {
+              control.setAttribute('aria-expanded', false);
+              content.setAttribute('aria-hidden', true);
+              content.style.maxHeight = null;
+          }
+      });
+  });
+
+
+  let serviceTabsSelect = document.querySelector('.service__tabs-select');
+  let serviceTabsSelectHeight = serviceTabsSelect.clientHeight;
+  let serviceSection = document.querySelector('.service');
+  let serviceSectionOffset = document.querySelector('.service').offsetTop;
+  let serviceBox = document.querySelectorAll('.service__box');
+  let posTop;
+  document.addEventListener('scroll', function(){
+    posTop = window.pageYOffset;
+    if(posTop > (serviceSectionOffset - 35)){
+      serviceTabsSelect.classList.add('service__tabs-select_fixed');
+      for(let i = 0; serviceBox.length > i; i++){
+        serviceBox[i].classList.add('service__box_open');
+      }
+    }
+    else if(posTop < (serviceSectionOffset - 35)) {
+      serviceTabsSelect.classList.remove('service__tabs-select_fixed');
+      for(let i = 0; serviceBox.length > i; i++){
+        serviceBox[i].classList.remove('service__box_open');
+      }
+    }
+  });
+};
 	/* ROLL NETWORK */
     // roll-network
 let icoRollNetwork = document.querySelector('.ico-roll-network');
@@ -296,6 +371,28 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 // jQuery
 $(document).ready(function() {
+	// Результат замера источников трафика
+	$.getJSON("json/top-direct-platforms.json", function (data) {
+		$.each(data.Items, function (i, Items) {
+			var i = i+1;
+
+			var HumanPercent = Items.HumanPercent;
+			var UntargetedPercent = Items.UntargetedPercent;
+			var BotPercent = Items.BotPercent;
+			var FraudPercent = Items.FraudPercent;
+			
+
+			$(".jsplatforms").append('<tr>'
+			+ '<td>'+i+'</td>'
+			+ '<td><div class="lable"><label class="checkbox favicon"><img alt=""src="https://s2.googleusercontent.com/s2/favicons?domain_url=' + Items.UtmKey + '"></label></div><label class="text-labl">' + Items.UtmKey + '</label></td>'
+			+ '<td class="text-center">' + Math.round(HumanPercent) + '%</td>'
+			+ '<td class="text-center">' + Math.round(UntargetedPercent) + '%</td>'
+			+ '<td class="text-center">' + Math.round(FraudPercent) + '%</td>'
+			+ '<td class="text-center">' + Math.round(BotPercent) + '%</td>'
+			+ '</tr>');
+		});
+	});
+
 	$(".calculator input").keyup(function () {
     $(this).val(thousandSeparator($(this).val().replace(/[^0-9]/g, "")));
     var yandex = $("[name='yandex']").val().replace(/\s/g, '');
