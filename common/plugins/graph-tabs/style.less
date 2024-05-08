@@ -1,0 +1,13 @@
+.tabs__panel {
+  opacity: 0;
+  transition: 1s ease opacity, 0s linear width, 0s linear height;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+.tabs__panel--active {
+  opacity: 1;
+  width: auto;
+  height: auto;
+  overflow: visible;
+}

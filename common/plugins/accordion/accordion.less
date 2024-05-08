@@ -1,0 +1,12 @@
+.accordion__content {
+	max-height: 0;
+	opacity: 0;
+	overflow: hidden;
+	will-change: max-height;
+	transition: .3s ease-out;
+	box-sizing: content-box;
+	color: #848484;
+}
+.open .accordion__content {
+	opacity: 1;
+}
