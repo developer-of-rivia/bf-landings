@@ -110,6 +110,30 @@ document.getElementById('hide_popup')
     // и сразу же скрываем окно
     overlay_div.style.display='none';
 });;
+	/* ---------------------- SERVICES ---------------------------- */
+    if (document.documentElement.clientWidth < 768) {
+  const sAccordions = document.querySelectorAll('.service__item');
+  sAccordions.forEach(el => {
+      el.addEventListener('click', (e) => {
+          const self = e.currentTarget;
+          const control = self.querySelector('.service__item-top');
+          const content = self.querySelector('.service__item-content');
+  
+          self.classList.toggle('service__item_open');
+  
+          // если открыт аккордеон
+          if (self.classList.contains('service__item_open')) {
+              control.setAttribute('aria-expanded', true);
+              content.setAttribute('aria-hidden', false);
+              content.style.maxHeight = content.scrollHeight + 'px';
+          } else {
+              control.setAttribute('aria-expanded', false);
+              content.setAttribute('aria-hidden', true);
+              content.style.maxHeight = null;
+          }
+      });
+  });
+};
 	/* ROLL NETWORK */
     // roll-network
 let icoRollNetwork = document.querySelector('.ico-roll-network');
@@ -149,29 +173,7 @@ document.addEventListener("DOMContentLoaded", function() {
             rollNetwork.classList.remove('roll-network_scrollbottom');
         }
     };
-});
-
-
-// Begin Verbox {literal}
-(function (d, w, m) {
-    window.supportAPIMethod = m;
-    var s = d.createElement("script");
-    s.type = "text/javascript";
-    s.id = "supportScript";
-    s.charset = "utf-8";
-    s.async = true;
-    var id = "fa8d6ba2fa033b89a545e3d9db332dae";
-    s.src = "https://admin.verbox.ru/support/support.js?h=" + id;
-    var sc = d.getElementsByTagName("script")[0];
-    w[m] =
-        w[m] ||
-        function () {
-            (w[m].q = w[m].q || []).push(arguments);
-        };
-    if (sc) sc.parentNode.insertBefore(s, sc);
-    else d.documentElement.firstChild.appendChild(s);
-})(document, window, "Verbox");
-// {/literal} End Verbox;
+});;
 });
 
 

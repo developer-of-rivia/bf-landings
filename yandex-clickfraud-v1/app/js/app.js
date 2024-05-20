@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ---------------------- PROT TABS ---------------------------- */
     @import 'common/sections/prot-section/prot.js';
     /* ---------------------- SERVICES ---------------------------- */
-    @import 'common/sections/services-section/services-tabs.js';
+    @import 'common/sections/services-section/services-section-tabs.js';
 	/* ROLL NETWORK */
     @import 'common/sections/roll-network/roll-network.js';
 });

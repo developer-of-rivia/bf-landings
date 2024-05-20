@@ -120,6 +120,199 @@ class GraphTabs {
 /*! lazysizes - v5.3.2 */
 
 !function(e,t){var a=function(){t(e.lazySizes),e.removeEventListener("lazyunveilread",a,!0)};t=t.bind(null,e,e.document),"object"==typeof module&&module.exports?t(require("lazysizes")):"function"==typeof define&&define.amd?define(["lazysizes"],t):e.lazySizes?a():e.addEventListener("lazyunveilread",a,!0)}(window,function(e,z,c){"use strict";var g,y,b,f,r,l,s,v,m;e.addEventListener&&(g=c.cfg,y=/\s+/g,b=/\s*\|\s+|\s+\|\s*/g,f=/^(.+?)(?:\s+\[\s*(.+?)\s*\])(?:\s+\[\s*(.+?)\s*\])?$/,r=/^\s*\(*\s*type\s*:\s*(.+?)\s*\)*\s*$/,l=/\(|\)|'/,s={contain:1,cover:1},v=function(e,t){var a;t&&((a=t.match(r))&&a[1]?e.setAttribute("type",a[1]):e.setAttribute("media",g.customMedia[t]||t))},m=function(e){var t,a,r,i,s;e.target._lazybgset&&(a=(t=e.target)._lazybgset,(r=t.currentSrc||t.src)&&(i=l.test(r)?JSON.stringify(r):r,(s=c.fire(a,"bgsetproxy",{src:r,useSrc:i,fullSrc:null})).defaultPrevented||(a.style.backgroundImage=s.detail.fullSrc||"url("+s.detail.useSrc+")")),t._lazybgsetLoading&&(c.fire(a,"_lazyloaded",{},!1,!0),delete t._lazybgsetLoading))},addEventListener("lazybeforeunveil",function(e){var t,a,r,i,s,l,n,d,u,o;!e.defaultPrevented&&(t=e.target.getAttribute("data-bgset"))&&(u=e.target,(o=z.createElement("img")).alt="",o._lazybgsetLoading=!0,e.detail.firesLoad=!0,a=t,r=u,i=o,s=z.createElement("picture"),l=r.getAttribute(g.sizesAttr),n=r.getAttribute("data-ratio"),d=r.getAttribute("data-optimumx"),r._lazybgset&&r._lazybgset.parentNode==r&&r.removeChild(r._lazybgset),Object.defineProperty(i,"_lazybgset",{value:r,writable:!0}),Object.defineProperty(r,"_lazybgset",{value:s,writable:!0}),a=a.replace(y," ").split(b),s.style.display="none",i.className=g.lazyClass,1!=a.length||l||(l="auto"),a.forEach(function(e){var t,a=z.createElement("source");l&&"auto"!=l&&a.setAttribute("sizes",l),(t=e.match(f))?(a.setAttribute(g.srcsetAttr,t[1]),v(a,t[2]),v(a,t[3])):a.setAttribute(g.srcsetAttr,e),s.appendChild(a)}),l&&(i.setAttribute(g.sizesAttr,l),r.removeAttribute(g.sizesAttr),r.removeAttribute("sizes")),d&&i.setAttribute("data-optimumx",d),n&&i.setAttribute("data-ratio",n),s.appendChild(i),r.appendChild(s),setTimeout(function(){c.loader.unveil(o),c.rAF(function(){c.fire(o,"_lazyloaded",{},!0,!0),o.complete&&m({target:o})})}))}),z.addEventListener("load",m,!0),e.addEventListener("lazybeforesizes",function(e){var t,a,r,i;e.detail.instance==c&&e.target._lazybgset&&e.detail.dataAttr&&(t=e.target._lazybgset,r=t,i=(getComputedStyle(r)||{getPropertyValue:function(){}}).getPropertyValue("background-size"),!s[i]&&s[r.style.backgroundSize]&&(i=r.style.backgroundSize),s[a=i]&&(e.target._lazysizesParentFit=a,c.rAF(function(){e.target.setAttribute("data-parent-fit",a),e.target._lazysizesParentFit&&delete e.target._lazysizesParentFit})))},!0),z.documentElement.addEventListener("lazybeforesizes",function(e){var t,a;!e.defaultPrevented&&e.target._lazybgset&&e.detail.instance==c&&(e.detail.width=(t=e.target._lazybgset,a=c.gW(t,t.parentNode),(!t._lazysizesWidth||a>t._lazysizesWidth)&&(t._lazysizesWidth=a),t._lazysizesWidth))}))});;
+// wowjs
+/*! WOW - v1.1.2 - 2015-08-19
+ * Copyright (c) 2015 Matthieu Aussaguel; Licensed MIT */
+(function() {
+    var t, e, n, i, o, r = function(t, e) {
+            return function() {
+                return t.apply(e, arguments)
+            }
+        },
+        s = [].indexOf || function(t) {
+            for (var e = 0, n = this.length; n > e; e++)
+                if (e in this && this[e] === t) return e;
+            return -1
+        };
+    e = function() {
+        function t() {}
+        return t.prototype.extend = function(t, e) {
+            var n, i;
+            for (n in e) i = e[n], null == t[n] && (t[n] = i);
+            return t
+        }, t.prototype.isMobile = function(t) {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(t)
+        }, t.prototype.createEvent = function(t, e, n, i) {
+            var o;
+            return null == e && (e = !1), null == n && (n = !1), null == i && (i = null), null != document.createEvent ? (o = document.createEvent("CustomEvent")).initCustomEvent(t, e, n, i) : null != document.createEventObject ? (o = document.createEventObject()).eventType = t : o.eventName = t, o
+        }, t.prototype.emitEvent = function(t, e) {
+            return null != t.dispatchEvent ? t.dispatchEvent(e) : e in (null != t) ? t[e]() : "on" + e in (null != t) ? t["on" + e]() : void 0
+        }, t.prototype.addEvent = function(t, e, n) {
+            return null != t.addEventListener ? t.addEventListener(e, n, !1) : null != t.attachEvent ? t.attachEvent("on" + e, n) : t[e] = n
+        }, t.prototype.removeEvent = function(t, e, n) {
+            return null != t.removeEventListener ? t.removeEventListener(e, n, !1) : null != t.detachEvent ? t.detachEvent("on" + e, n) : delete t[e]
+        }, t.prototype.innerHeight = function() {
+            return "innerHeight" in window ? window.innerHeight : document.documentElement.clientHeight
+        }, t
+    }(), n = this.WeakMap || this.MozWeakMap || (n = function() {
+        function t() {
+            this.keys = [], this.values = []
+        }
+        return t.prototype.get = function(t) {
+            var e, n, i, o;
+            for (e = n = 0, i = (o = this.keys).length; i > n; e = ++n)
+                if (o[e] === t) return this.values[e]
+        }, t.prototype.set = function(t, e) {
+            var n, i, o, r;
+            for (n = i = 0, o = (r = this.keys).length; o > i; n = ++i)
+                if (r[n] === t) return void(this.values[n] = e);
+            return this.keys.push(t), this.values.push(e)
+        }, t
+    }()), t = this.MutationObserver || this.WebkitMutationObserver || this.MozMutationObserver || (t = function() {
+        function t() {
+            "undefined" != typeof console && null !== console && console.warn("MutationObserver is not supported by your browser."), "undefined" != typeof console && null !== console && console.warn("WOW.js cannot detect dom mutations, please call .sync() after loading new content.")
+        }
+        return t.notSupported = !0, t.prototype.observe = function() {}, t
+    }()), i = this.getComputedStyle || function(t) {
+        return this.getPropertyValue = function(e) {
+            var n;
+            return "float" === e && (e = "styleFloat"), o.test(e) && e.replace(o, (function(t, e) {
+                return e.toUpperCase()
+            })), (null != (n = t.currentStyle) ? n[e] : void 0) || null
+        }, this
+    }, o = /(\-([a-z]){1})/g, this.WOW = function() {
+        function o(t) {
+            null == t && (t = {}), this.scrollCallback = r(this.scrollCallback, this), this.scrollHandler = r(this.scrollHandler, this), this.resetAnimation = r(this.resetAnimation, this), this.start = r(this.start, this), this.scrolled = !0, this.config = this.util().extend(t, this.defaults), null != t.scrollContainer && (this.config.scrollContainer = document.querySelector(t.scrollContainer)), this.animationNameCache = new n, this.wowEvent = this.util().createEvent(this.config.boxClass)
+        }
+        return o.prototype.defaults = {
+            boxClass: "wow",
+            animateClass: "animated",
+            offset: 150,
+            mobile: !0,
+            live: !0,
+            callback: null,
+            scrollContainer: null
+        }, o.prototype.init = function() {
+            var t;
+            return this.element = window.document.documentElement, "interactive" === (t = document.readyState) || "complete" === t ? this.start() : this.util().addEvent(document, "DOMContentLoaded", this.start), this.finished = []
+        }, o.prototype.start = function() {
+            var e, n, i, o;
+            if (this.stopped = !1, this.boxes = function() {
+                    var t, n, i, o;
+                    for (o = [], t = 0, n = (i = this.element.querySelectorAll("." + this.config.boxClass)).length; n > t; t++) e = i[t], o.push(e);
+                    return o
+                }.call(this), this.all = function() {
+                    var t, n, i, o;
+                    for (o = [], t = 0, n = (i = this.boxes).length; n > t; t++) e = i[t], o.push(e);
+                    return o
+                }.call(this), this.boxes.length)
+                if (this.disabled()) this.resetStyle();
+                else
+                    for (n = 0, i = (o = this.boxes).length; i > n; n++) e = o[n], this.applyStyle(e, !0);
+            return this.disabled() || (this.util().addEvent(this.config.scrollContainer || window, "scroll", this.scrollHandler), this.util().addEvent(window, "resize", this.scrollHandler), this.interval = setInterval(this.scrollCallback, 50)), this.config.live ? new t(function(t) {
+                return function(e) {
+                    var n, i, o, r, s;
+                    for (s = [], n = 0, i = e.length; i > n; n++) r = e[n], s.push(function() {
+                        var t, e, n, i;
+                        for (i = [], t = 0, e = (n = r.addedNodes || []).length; e > t; t++) o = n[t], i.push(this.doSync(o));
+                        return i
+                    }.call(t));
+                    return s
+                }
+            }(this)).observe(document.body, {
+                childList: !0,
+                subtree: !0
+            }) : void 0
+        }, o.prototype.stop = function() {
+            return this.stopped = !0, this.util().removeEvent(this.config.scrollContainer || window, "scroll", this.scrollHandler), this.util().removeEvent(window, "resize", this.scrollHandler), null != this.interval ? clearInterval(this.interval) : void 0
+        }, o.prototype.sync = function() {
+            return t.notSupported ? this.doSync(this.element) : void 0
+        }, o.prototype.doSync = function(t) {
+            var e, n, i, o, r;
+            if (null == t && (t = this.element), 1 === t.nodeType) {
+                for (r = [], n = 0, i = (o = (t = t.parentNode || t).querySelectorAll("." + this.config.boxClass)).length; i > n; n++) e = o[n], s.call(this.all, e) < 0 ? (this.boxes.push(e), this.all.push(e), this.stopped || this.disabled() ? this.resetStyle() : this.applyStyle(e, !0), r.push(this.scrolled = !0)) : r.push(void 0);
+                return r
+            }
+        }, o.prototype.show = function(t) {
+            return this.applyStyle(t), t.className = t.className + " " + this.config.animateClass, null != this.config.callback && this.config.callback(t), this.util().emitEvent(t, this.wowEvent), this.util().addEvent(t, "animationend", this.resetAnimation), this.util().addEvent(t, "oanimationend", this.resetAnimation), this.util().addEvent(t, "webkitAnimationEnd", this.resetAnimation), this.util().addEvent(t, "MSAnimationEnd", this.resetAnimation), t
+        }, o.prototype.applyStyle = function(t, e) {
+            var n, i, o;
+            return i = t.getAttribute("data-wow-duration"), n = t.getAttribute("data-wow-delay"), o = t.getAttribute("data-wow-iteration"), this.animate(function(r) {
+                return function() {
+                    return r.customStyle(t, e, i, n, o)
+                }
+            }(this))
+        }, o.prototype.animate = "requestAnimationFrame" in window ? function(t) {
+            return window.requestAnimationFrame(t)
+        } : function(t) {
+            return t()
+        }, o.prototype.resetStyle = function() {
+            var t, e, n, i, o;
+            for (o = [], e = 0, n = (i = this.boxes).length; n > e; e++) t = i[e], o.push(t.style.visibility = "visible");
+            return o
+        }, o.prototype.resetAnimation = function(t) {
+            var e;
+            return t.type.toLowerCase().indexOf("animationend") >= 0 ? (e = t.target || t.srcElement).className = e.className.replace(this.config.animateClass, "").trim() : void 0
+        }, o.prototype.customStyle = function(t, e, n, i, o) {
+            return e && this.cacheAnimationName(t), t.style.visibility = e ? "hidden" : "visible", n && this.vendorSet(t.style, {
+                animationDuration: n
+            }), i && this.vendorSet(t.style, {
+                animationDelay: i
+            }), o && this.vendorSet(t.style, {
+                animationIterationCount: o
+            }), this.vendorSet(t.style, {
+                animationName: e ? "none" : this.cachedAnimationName(t)
+            }), t
+        }, o.prototype.vendors = ["moz", "webkit"], o.prototype.vendorSet = function(t, e) {
+            var n, i, o, r;
+            for (n in i = [], e) o = e[n], t["" + n] = o, i.push(function() {
+                var e, i, s, l;
+                for (l = [], e = 0, i = (s = this.vendors).length; i > e; e++) r = s[e], l.push(t["" + r + n.charAt(0).toUpperCase() + n.substr(1)] = o);
+                return l
+            }.call(this));
+            return i
+        }, o.prototype.vendorCSS = function(t, e) {
+            var n, o, r, s, l, a;
+            for (s = (l = i(t)).getPropertyCSSValue(e), n = 0, o = (r = this.vendors).length; o > n; n++) a = r[n], s = s || l.getPropertyCSSValue("-" + a + "-" + e);
+            return s
+        }, o.prototype.animationName = function(t) {
+            var e;
+            try {
+                e = this.vendorCSS(t, "animation-name").cssText
+            } catch (n) {
+                e = i(t).getPropertyValue("animation-name")
+            }
+            return "none" === e ? "" : e
+        }, o.prototype.cacheAnimationName = function(t) {
+            return this.animationNameCache.set(t, this.animationName(t))
+        }, o.prototype.cachedAnimationName = function(t) {
+            return this.animationNameCache.get(t)
+        }, o.prototype.scrollHandler = function() {
+            return this.scrolled = !0
+        }, o.prototype.scrollCallback = function() {
+            var t;
+            return !this.scrolled || (this.scrolled = !1, this.boxes = function() {
+                var e, n, i, o;
+                for (o = [], e = 0, n = (i = this.boxes).length; n > e; e++)(t = i[e]) && (this.isVisible(t) ? this.show(t) : o.push(t));
+                return o
+            }.call(this), this.boxes.length || this.config.live) ? void 0 : this.stop()
+        }, o.prototype.offsetTop = function(t) {
+            for (var e; void 0 === t.offsetTop;) t = t.parentNode;
+            for (e = t.offsetTop; t = t.offsetParent;) e += t.offsetTop;
+            return e
+        }, o.prototype.isVisible = function(t) {
+            var e, n, i, o, r;
+            return n = t.getAttribute("data-wow-offset") || this.config.offset, o = (r = this.config.scrollContainer && this.config.scrollContainer.scrollTop || window.pageYOffset) + Math.min(this.element.clientHeight, this.util().innerHeight()) - n, e = (i = this.offsetTop(t)) + t.clientHeight, o >= i && e >= r
+        }, o.prototype.util = function() {
+            return null != this._util ? this._util : this._util = new e
+        }, o.prototype.disabled = function() {
+            return !this.config.mobile && this.util().isMobile(navigator.userAgent)
+        }, o
+    }()
+}).call(this);;
+/* ---------------------- WOW JS ---------------------------- */
+wow = new WOW();
+wow.init();
 // accordion
 // accordion
 const accordions = document.querySelectorAll('.accordion');
@@ -159,6 +352,7 @@ function getMap() {
     }
 }
 loadMapBlock.classList.contains("_loaded") || getMap();;
+
 
 
 /* SECTIONS */
@@ -224,19 +418,88 @@ document.getElementById('hide_popup')
     // и сразу же скрываем окно
     overlay_div.style.display='none';
 });;
-    /* ---------------------- PROT TABS ---------------------------- */
-    const tabs1 = new GraphTabs('tab', {
-    isChanged: (tabs) => {
-      console.log(tabs);
-    }
-});;
-    /* ---------------------- SERVICES ---------------------------- */
-    /* services tabs */
+    /* ---------------------- SERVICES TABS ---------------------------- */
+    let serviceTabsSelectHeader = document.querySelector('.service__tabs-select-header');
+let serviceTabsSelectBody = document.querySelector('.service__tabs-select-body');
+let serviceTabsSelectDesc = document.querySelector('.service__tabs-select-desc');
+let thisTabClicked;
+
+
+serviceTabsSelectHeader.addEventListener('click', function(){
+  serviceTabsSelectBody.classList.toggle('service__tabs-select-body_active');
+  serviceTabsSelectHeader.classList.toggle('service__tabs-select-header_active');
+});
+
+
 const tabsService = new GraphTabs('service-tab', {
     isChanged: (tabs) => {
-      console.log(tabs);
+      clickedTabContent = document.querySelector('.service .tabs__nav-btn--active').innerHTML;
+      clickedTabDescription = document.querySelector('.service .tabs__panel--active .service__tabs-item-title').innerHTML;
+      serviceTabsSelectHeader.innerHTML = clickedTabContent;
+      serviceTabsSelectDesc.innerHTML = clickedTabDescription;
+
+      serviceTabsSelectBody.classList.remove('service__tabs-select-body_active');
+      serviceTabsSelectHeader.classList.remove('service__tabs-select-header_active');
+
+      if (document.documentElement.clientWidth < 768) {
+        document.querySelector('.service').scrollIntoView();
+      }
     }
-});;
+});
+
+
+
+
+if (document.documentElement.clientWidth < 768) {
+  const sAccordions = document.querySelectorAll('.service__item');
+  sAccordions.forEach(el => {
+      el.addEventListener('click', (e) => {
+          const self = e.currentTarget;
+          const control = self.querySelector('.service__item-top');
+          const content = self.querySelector('.service__item-content');
+  
+          self.classList.toggle('service__item_open');
+  
+          // если открыт аккордеон
+          if (self.classList.contains('service__item_open')) {
+              control.setAttribute('aria-expanded', true);
+              content.setAttribute('aria-hidden', false);
+              content.style.maxHeight = content.scrollHeight + 'px';
+          } else {
+              control.setAttribute('aria-expanded', false);
+              content.setAttribute('aria-hidden', true);
+              content.style.maxHeight = null;
+          }
+      });
+  });
+
+
+  var timeout_id = setTimeout(function(){
+    let serviceTabsSelect = document.querySelector('.service__tabs-select');
+    serviceTabsSelect.classList.remove('service__tabs-select_start');
+    let serviceSection = document.querySelector('.service');
+    let serviceSectionOffset = serviceSection.offsetTop;
+    let serviceBox = document.querySelectorAll('.service__box');
+    let posTop;
+  
+    document.addEventListener('scroll', function(){
+      posTop = window.pageYOffset;
+      if(posTop >= (serviceSectionOffset)){
+        serviceTabsSelect.classList.add('service__tabs-select_fixed');
+        for(let i = 0; serviceBox.length > i; i++){
+          serviceBox[i].classList.add('service__box_open');
+        }
+      }
+      else if(posTop <= (serviceSectionOffset)) {
+        serviceTabsSelect.classList.remove('service__tabs-select_fixed');
+        for(let i = 0; serviceBox.length > i; i++){
+          serviceBox[i].classList.remove('service__box_open');
+        }
+      }
+    });
+  }, 2000);
+
+};
 	/* ROLL NETWORK */
     // roll-network
 let icoRollNetwork = document.querySelector('.ico-roll-network');
@@ -276,199 +539,61 @@ document.addEventListener("DOMContentLoaded", function() {
             rollNetwork.classList.remove('roll-network_scrollbottom');
         }
     };
-});
-
-
-// Begin Verbox {literal}
-(function (d, w, m) {
-    window.supportAPIMethod = m;
-    var s = d.createElement("script");
-    s.type = "text/javascript";
-    s.id = "supportScript";
-    s.charset = "utf-8";
-    s.async = true;
-    var id = "fa8d6ba2fa033b89a545e3d9db332dae";
-    s.src = "https://admin.verbox.ru/support/support.js?h=" + id;
-    var sc = d.getElementsByTagName("script")[0];
-    w[m] =
-        w[m] ||
-        function () {
-            (w[m].q = w[m].q || []).push(arguments);
-        };
-    if (sc) sc.parentNode.insertBefore(s, sc);
-    else d.documentElement.firstChild.appendChild(s);
-})(document, window, "Verbox");
-// {/literal} End Verbox;
+});;
 });
 // jQuery
-$(document).ready(function() {
-	$(".calculator input").keyup(function () {
-    $(this).val(thousandSeparator($(this).val().replace(/[^0-9]/g, "")));
-    var yandex = $("[name='yandex']").val().replace(/\s/g, '');
-    var google = $("[name='google']").val().replace(/\s/g, '');
-    var vk = $("[name='vk']").val().replace(/\s/g, '');
-    var priceyandex = $("[name='priceyandex']").val().replace(/\s/g, '');
-    var pricegoogle = $("[name='pricegoogle']").val().replace(/\s/g, '');
-    var pricevk = $("[name='pricevk']").val().replace(/\s/g, '');
-    //var theme = $(".theme option").prop('selected', true).change().attr('data');
-    var theme = "";
-
-    $( ".calculator select option:selected" ).each(function() {
-        theme += $( this ).attr('data') + " ";
-    });
-
-
-
-    if(priceyandex == ''){
-        if(theme == undefined){
-            resultyandex = (yandex / 100 * theme)*50;
-        }else{
-            resultyandex = (yandex / 100 * 25)*50;
-        }
-    }else{
-        if(theme == undefined){
-            resultyandex = (yandex / 100 * theme)*priceyandex;
-        }else{
-            resultyandex = (yandex / 100 * 25)*priceyandex;
-        }
-    }
-
-    if(pricegoogle == ''){
-        if(theme == undefined){
-            resultgoogle = (google / 100 * theme)*50;
-        }else{
-            resultgoogle = (google / 100 * 25)*50;
-        }
-    }else{
-        if(theme == undefined){
-            resultgoogle = (google / 100 * theme)*pricegoogle;
-        }else{
-            resultgoogle = (google / 100 * 25)*pricegoogle;
-        }
-    }
-
-    if(pricevk == ''){
-        if(theme == undefined){
-            resultvk = (vk / 100 * theme)*50;
-        }else{
-            resultvk = (vk / 100 * 25)*50;
-        }
-    }else{
-        if(theme == undefined){
-            resultvk = (vk / 100 * theme)*pricevk;
-        }else{
-            resultvk = (vk / 100 * 25)*pricevk;
-        }
-    }
+$(document).ready(function(){
+    /* NUMBERS SECTION */
+	$(window).on("scroll", (function() {
+		if($(".botfaqtor__numbers").hasClass("animated") && !$(".botfaqtor__numbers").hasClass("numEnd")) {
+			$(".botfaqtor__numbers-count").each((function() {
+				function e(e, t) {
+					return e.toString().replace(/\B(?=(\d{3})+(?!\d))/g, t || " ")
+				}
+				const t = $(this);
+				$({
+					Count: t.text()
+				}).animate({
+					Count: t.parent().attr("data-count")
+				}, {
+					duration: 1500,
+					easing: "linear",
+					step: function() {
+						t.text(Math.floor(this.Count))
+					},
+					complete: function() {
+						t.text(this.Count).css({
+						}), document.querySelector(".botfaqtor__numbers-count--a").innerHTML = e(1232439510),
+							document.querySelector(".botfaqtor__numbers-count--b").innerHTML = e(391507260),
+							document.querySelector(".botfaqtor__numbers-count--c").innerHTML = e(18838),
+						$(".botfaqtor__numbers").addClass('numEnd');
+					}
+				})
+			}));
+		}
+	}));
 
 
-
-    resultSUM = resultyandex+resultgoogle+resultvk;
-    var sumyear = resultSUM*12
-
-    
-    if(sumyear || resultSUM){
-        $('.year span').text(thousandSeparator(Math.ceil(sumyear)));
-        $('.month span').text(thousandSeparator(Math.ceil(resultSUM)));
-    }else{
-        $('.year span').text('0');
-        $('.month span').text('0');
-    }
-    
-});
-
-
-
-
-$(".calculator select").change(function(){
-    var yandex = $("[name='yandex']").val().replace(/\s/g, '');
-    var google = $("[name='google']").val().replace(/\s/g, '');
-    var vk = $("[name='vk']").val().replace(/\s/g, '');
-
-    var priceyandex = $("[name='priceyandex']").val().replace(/\s/g, '');
-    var pricegoogle = $("[name='pricegoogle']").val().replace(/\s/g, '');
-    var pricevk = $("[name='pricevk']").val().replace(/\s/g, '');
-
-    var theme = "";
-    $( ".calculator select option:selected" ).each(function() {
-        theme += $( this ).attr('data') + " ";
-    });
-
-
-    if(priceyandex == ''){
-        resultyandex = (yandex / 100 * theme)*50;
-    }else{
-        resultyandex = (yandex / 100 * theme)*priceyandex;
-    }
-
-    if(pricegoogle == ''){
-        resultgoogle = (google / 100 * theme)*50;
-    }else{
-        resultgoogle = (google / 100 * theme)*pricegoogle  
-    }
-
-
-    if(pricevk == ''){
-        resultvk = (vk / 100 * theme)*50;
-    }else{
-        resultvk = (vk / 100 * theme)*pricevk
-    }
-
-
-    resultSUM = resultyandex+resultgoogle+resultvk;
-    var sumyear = resultSUM*12
-
-    
-    if(sumyear || resultSUM){
-        $('.year span').text(thousandSeparator(Math.ceil(sumyear)));
-        $('.month span').text(thousandSeparator(Math.ceil(resultSUM)));
-    }else{
-        $('.year span').text('0');
-        $('.month span').text('0');
-    }
-
-});
-
-var thousandSeparator = function (str) {
-var parts = (str + '').split('.'),
-    main = parts[0],
-    len = main.length,
-    output = '',
-    i = len - 1;
-
-while (i >= 0) {
-    output = main.charAt(i) + output;
-    if ((len - i) % 3 === 0 && i > 0) {
-        output = ' ' + output;
-    }
-    --i;
-}
-
-if (parts.length > 1) {
-    output += '.' + parts[1];
-}
-return output;
-};;
-
-	// Результат замера источников трафика
-	$.getJSON("json/top-direct-platforms.json", function (data) {
-		$.each(data.Items, function (i, Items) {
-			var i = i+1;
-
-			var HumanPercent = Items.HumanPercent;
-			var UntargetedPercent = Items.UntargetedPercent;
-			var BotPercent = Items.BotPercent;
-			var FraudPercent = Items.FraudPercent;
-			
-
-			$(".jsplatforms").append('<tr>'
-			+ '<td>'+i+'</td>'
-			+ '<td><div class="lable"><label class="checkbox favicon"><img alt=""src="https://s2.googleusercontent.com/s2/favicons?domain_url=' + Items.UtmKey + '"></label></div><label class="text-labl">' + Items.UtmKey + '</label></td>'
-			+ '<td class="text-center">' + Math.round(HumanPercent) + '%</td>'
-			+ '<td class="text-center">' + Math.round(UntargetedPercent) + '%</td>'
-			+ '<td class="text-center">' + Math.round(FraudPercent) + '%</td>'
-			+ '<td class="text-center">' + Math.round(BotPercent) + '%</td>'
-			+ '</tr>');
+	$.getJSON("../../data_news.json", function (data_news) {
+		$.each(data_news, function (i, item_news) {
+			$(".ency__box").append(
+				'<a href="https://botfaqtor.ru' + item_news['post_name'] + '" target="_blank" class="ency__item">' +
+					'<div class="ency__item-img">' +
+						'<img data-src="https://botfaqtor.ru' + item_news['img'] +'" class="lazyload">' +
+					'</div>' +
+					'<ul class="ency__item-tags">' +
+						'<li>' +
+							item_news['date'] +
+						'</li>' +
+					'</ul>' +
+					'<div class="ency__item-title">' +
+						item_news['post_title'] +
+					'</div>' +
+					'<div class="ency__item-text">' +
+						item_news['post_excerpt'] +
+					'</div>' +
+				'</a>'
+			);
 		});
 	});
 });
