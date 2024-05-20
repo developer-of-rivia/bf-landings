@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ---------------------- TELEGRAM POPUP ---------------------------- */
     @import 'common/sections/popup/main.js';
     /* ---------------------- SERVICES TABS ---------------------------- */
-    @import 'common/sections/services-section/services-tabs.js';
+    @import 'common/sections/services-section/services-section-tabs.js';
 	/* ROLL NETWORK */
     @import 'common/sections/roll-network/roll-network.js';
 });
@@ -50,9 +50,9 @@ $(document).ready(function(){
 					},
 					complete: function() {
 						t.text(this.Count).css({
-						}), document.querySelector(".botfaqtor__numbers-count--a").innerHTML = e(1165852647),
-							document.querySelector(".botfaqtor__numbers-count--b").innerHTML = e(353720668),
-							document.querySelector(".botfaqtor__numbers-count--c").innerHTML = e(17834),
+						}), document.querySelector(".botfaqtor__numbers-count--a").innerHTML = e(1232439510),
+							document.querySelector(".botfaqtor__numbers-count--b").innerHTML = e(391507260),
+							document.querySelector(".botfaqtor__numbers-count--c").innerHTML = e(18838),
 						$(".botfaqtor__numbers").addClass('numEnd');
 					}
 				})

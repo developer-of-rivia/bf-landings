@@ -85,7 +85,7 @@
 .main__bottom-text{
 	font-size: 14px;
 	color: #999FA9;
-	margin-top: 30px;
+	margin-top: 20px;
 	font-weight: 400;
 }
 .main__bottom-price{
@@ -133,6 +133,7 @@
 	background: #fff;
 	transition: .1s ease;
 	opacity: 0;
+	font-family: 'Roboto';
 }
 .main__ourservices-item:hover{
 	background: #F5F5F5;
@@ -173,17 +174,22 @@
 	width: 650px;
 }
 .main__graphs1{
-	right: -8px;
+	right: 40px;
 	box-shadow: 0 0 21px 0 rgba(0,0,0,0.15);
 	border-radius: 15px;
 	position: absolute;
 }
 .main__graphs2{
-	right: -30px;
+	right: 10px;
 	bottom: 50px;
 	box-shadow: 0 0 21px 0 rgba(0,0,0,0.15);
 	border-radius: 15px;
 	position: absolute;
+}
+@media screen and (max-height: 700px){
+	.main{
+		padding-top: 50px;
+	}
 }
 @media screen and (max-width: 1370px){
 	.main {
@@ -220,6 +226,9 @@
 	}
 	.main__ourservices-item{
 		height: 40px;
+	}
+	.main__graphs2{
+		max-width: 580px;
 	}
 }
 @media screen and (max-width: 1200px){
@@ -397,13 +406,13 @@
 }
 @media screen and (max-width: 480px){
 	.adv__item {
-		width: 100%;
 		justify-content: center;
 		text-align: center;
 		flex-direction: column;
 	}
 	.adv__item-text {
 		text-align: center;
+		font-size: 14px;
 	}
 }
 /* botfaqtor */
@@ -424,7 +433,7 @@
 	flex-direction: column;
 	text-align: center;
 	justify-content: space-between;
-	background: #EDF8FD;
+	background: linear-gradient(to bottom, #EDF9FD, #EEF2FB);
 	border-radius: 15px;
 	border: 1px solid #2174D3;
 	padding: 0 20px;
@@ -611,6 +620,7 @@
 .ency__item-tags li{
 	color: #9CA1A9;
 	font-size: 14px;
+	font-family: 'Inter';
 }
 .ency__item-tags li:after{
 	content: '';
@@ -628,11 +638,15 @@
 	color: #333;
 	font-weight: 500;
 	margin-top: 15px;
+	font-family: 'Inter';
+	line-height: 130%;
 }
 .ency__item-text{
 	font-size: 14px;
 	color: #333;
 	margin-top: 8px;
+	font-family: 'Inter';
+	line-height: 130%;
 }
 .ency__btn{
 	margin-top: 40px;
@@ -681,8 +695,7 @@
 	box-shadow: 0 0 30px 0 rgba(20,177,134,.25);
 }
 .btn:hover{
-	background: #27c58b;
-	box-shadow: none;
+	background: #13a570;
 }
 .title span{
 	color: #27c58b;

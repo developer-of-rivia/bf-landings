@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	@import 'common/sections/header/header.js'
     /* ---------------------- TELEGRAM POPUP ---------------------------- */
     @import 'common/sections/popup/main.js';
+	/* ---------------------- SERVICES ---------------------------- */
+    @import 'common/sections/services-section/services-section.js';
 	/* ROLL NETWORK */
     @import 'common/sections/roll-network/roll-network.js';
 });

@@ -7,7 +7,6 @@
 	gap: 2%;
 	row-gap: 20px;
 	justify-content: space-between;
-	padding-top: 35px;
 }
 .service__item{
 	width: 49%;
@@ -261,12 +260,6 @@
 
 
 /**/
-.service__tabs-select-header{
-	display: none;
-}
-.service__tabs-item-title{
-	display: none;
-}
 .service__tabs-select-desc{
 	display: none;
 }
@@ -276,7 +269,16 @@
 .service__tabs-select-body{
 	display: flex;
 }
+.service__tabs-select-header{
+	display: none;
+}
 @media screen and (max-width: 767px){
+	.service__box{
+		padding-top: 35px;
+	}
+	.service__tabs-item-title{
+		display: none;
+	}
 	.service__item-icon{
 		display: none;
 	}
@@ -321,6 +323,9 @@
 		padding-top: 30px;
 		padding-bottom: 20px;
 	}
+	.service__tabs-select_start{
+		box-shadow: 0 34px 40px 0 rgba(0,0,0,.06);
+	}
 	.service__tabs-select_fixed{
 		box-shadow: 0 4px 40px 0 rgba(0,0,0,0.15);
 	}
@@ -338,7 +343,7 @@
 		background: url('../images/dist/service/chev-top.svg') no-repeat calc(100% - 15px) center;
 	}
 	.service__tabs-select-header svg{
-		fill: #efb503;
+		fill: #4399ff;
 		min-width: 22px;
 		width: 22px;
 	}
@@ -421,4 +426,7 @@
 	.service__box{
 		row-gap: 15px;
 	}
+}
+.service__box_notabs{
+	padding-top: 0;
 }

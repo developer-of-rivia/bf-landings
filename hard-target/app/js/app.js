@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ---------------------- TELEGRAM POPUP ---------------------------- */
     @import 'common/sections/popup/main.js';
     /* ---------------------- SERVICES ---------------------------- */
-    @import 'common/sections/services-section/services-tabs.js';
+    @import 'common/sections/services-section/services-section-tabs.js';
 	/* ROLL NETWORK */
     @import 'common/sections/roll-network/roll-network.js';
 });
