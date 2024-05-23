@@ -11,6 +11,8 @@ wow.init();
 @import 'common/plugins/accordion/accordion.js';
 // lazymap
 @import 'common/plugins/lazymap/lazymap.js';
+/* smooth scroll */
+@import 'common/plugins/smooth-scroll/main.js'
 
 
 /* SECTIONS */

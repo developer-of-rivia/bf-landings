@@ -1,5 +1,8 @@
+/* config */
 let folderName = 'botfaqtor';
 
+
+/* dependencies */
 let preprocessor = 'less', // Preprocessor (sass, less, styl); 'sass' also work with the Scss syntax in blocks/ folder.
 	fileswatch   = 'html,htm,txt,json,md,woff2' // List of files extensions for watching & hard reload
 
@@ -175,6 +178,19 @@ function deploySFTP() {
 			remotePath: `${folderName}`
         }));
 };
+
+/* деплой по rsync */
+// function deploySFTP() {
+// 	return src(`/`)
+// 	.pipe(rsync({
+// 		root: 'build/',
+// 		hostname: 'example.com',
+// 		destination: 'path/to/site/'
+// 	}));
+// };
+
+
+
 
 /* вотчер */
 function startwatch() {
