@@ -1,11 +1,9 @@
 /* config */
-let folderName = 'botfaqtor';
-
-
-/* dependencies */
+let folderName = 'vk-clickfraud-v1';
 let preprocessor = 'less', // Preprocessor (sass, less, styl); 'sass' also work with the Scss syntax in blocks/ folder.
 	fileswatch   = 'html,htm,txt,json,md,woff2' // List of files extensions for watching & hard reload
 
+/* imports */
 import pkg from 'gulp'
 const { gulp, src, dest, parallel, series, watch, task } = pkg
 
@@ -191,7 +189,13 @@ function deploySFTP() {
 
 
 
-
+function prewatch() {
+	watch(['**/*.*']).on('change', function(file){
+		let path = file.split('\\');
+		folderName = path[0];
+		console.log(folderName);
+	});
+}
 /* вотчер */
 function startwatch() {
 	watch([`${folderName}/app/styles/${preprocessor}/**/*`,`common/**/*.less`], { usePolling: true }, parallel(styles, criticalCss))
@@ -205,4 +209,4 @@ function startwatch() {
 export { scripts, styles, images, deploySFTP }
 export let assets = series(scripts, styles, images)
 export let build = series(cleandist, images, scripts, styles, criticalCss, buildcopy, buildhtml, cssFileVersion, jsFileVersion, filesVersionHtml, deleteOldCss, deleteOldJs, criticalCssInject)
-export default series(scripts, styles, images, parallel(browsersync, startwatch))
+export default series(scripts, styles, images, parallel(browsersync, prewatch, startwatch))

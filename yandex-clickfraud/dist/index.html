@@ -33,7 +33,7 @@
 	<!-- --------------------------------- HEAD SCRIPTS --------------------------------- -->
 	<!-- --------------------------------- HEAD SCRIPTS --------------------------------- -->
 	<!-- --------------------------------- HEAD SCRIPTS --------------------------------- -->
-	<link rel="stylesheet" href="css/app.min.42118647.css">
+	<link rel="stylesheet" href="css/app.min.424175828.css">
 	<!-- fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -2808,7 +2808,43 @@
 	<!-- --------------------------------- BOTTOM SCRIPTS --------------------------------- -->
 	<!-- jquery -->
 	<script src="../../common/plugins/jquery/jquery-3.6.4.min.js"></script>
-	<script src="js/app.min.42118647.js"></script>
+	<script src="js/app.min.424175828.js"></script>
+
+	<script>
+        var fired = false;
+        window.addEventListener('scroll', () => {
+            if (fired === false) {
+                fired = true;
+                setTimeout(() => {
+                    var yaParams = {};
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('GET', 'https://ip.up66.ru/', true);
+                    xhr.onload = function () {
+                        yaParams.ip = this.responseText;
+                    }
+                    xhr.send();
+
+                    (function (m, e, t, r, i, k, a) {
+                        m[i] = m[i] || function () {
+                            (m[i].a = m[i].a || []).push(arguments)
+                        };
+                        m[i].l = 1 * new Date();
+                        k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k
+                            .src = r, a.parentNode.insertBefore(k, a)
+                    })
+                    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+                    ym(49731991, "init", {
+                        clickmap: true,
+                        trackLinks: true,
+                        accurateTrackBounce: true,
+                        webvisor: true,
+						triggerEvent: true
+                    });
+
+                }, 1000)
+            }
+        });
+    </script>
 
 
 	<!-- --------------------------------- EXTERNAL SCRIPTS AREA --------------------------------- -->
