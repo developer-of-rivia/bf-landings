@@ -34,6 +34,7 @@
 		"gulp-less-glob": "^1.0.0",
 		"gulp-newer": "^1.4.0",
 		"gulp-noop": "^1.0.1",
+		"gulp-plumber": "^1.2.1",
 		"gulp-postcss": "^9.0.1",
 		"gulp-replace": "^1.1.4",
 		"gulp-rsync": "0.1.0",
@@ -47,7 +48,9 @@
 		"gulp-uglify": "^3.0.2",
 		"gulp-webp": "^4.0.1",
 		"postcss": "^8.4.30",
+		"rsync-slim": "^1.1.0",
 		"sass": "^1.68.0",
+		"sftp-sync-deploy": "^0.7.1",
 		"terser-webpack-plugin": "^5.3.9",
 		"webpack": "^5.88.2",
 		"webpack-stream": "^7.0.0"
