@@ -1,4 +1,4 @@
-import { deploy}  from 'sftp-sync-deploy';
+import { deploy }  from 'sftp-sync-deploy';
 
 let config = {
     host: '5.188.119.137',            // Required.

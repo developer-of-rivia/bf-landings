@@ -168,53 +168,6 @@ async function cleandist() {
 	await deleteAsync(`${folderName}/dist/**/*`, { force: true })
 }
 
-/* деплой по sftp */
-function deploySFTP() {
-	return src(`${folderName}/dist/**`)
-        .pipe(sftp({
-            host: '5.188.119.137',
-            user: 'romanov',
-            pass: 'nTp9AIz4w_h3_5iWQESS',
-			remotePath: `${folderName}`
-        }));
-};
-
-/* деплой по rsync */
-// function deployRsync() {
-// 	return src(`/${folderName}/dist/**`)
-// 	.pipe(rsync({
-// 		root: `/${folderName}/dist/**`,
-// 		hostname: 'landinguser@5.188.119.137',
-// 		destination: '/',
-// 		clean: false,
-// 	}));
-// };
-
-// function deployRsync() {
-// 	return src('botfaqtor/dist/')
-// 	.pipe(rsync({
-// 		root: 'botfaqtor/dist/',
-// 		hostname: 'landinguser@5.188.119.137',
-// 		destination: 'da',
-// 	}));
-// };
-
-// function deployRsync() {
-// 	rsyncSlim({
-// 		src: 'botfaqtor/dist/**',
-// 		dest: 'landinguser@5.188.119.137:/da',
-// 		options: '-rtvhcz --delete --progress',
-// 		log: true,
-// 		ssh: 'landinguser'
-// 	},
-// 	function(err) {
-// 		console.log(err);
-// 	}
-// 	);
-// };
-
-
-
 
 /* вотчер */
 function startwatch() {
@@ -230,5 +183,3 @@ export { scripts, styles, images, deploySFTP }
 export let assets = series(scripts, styles, images)
 export let build = series(cleandist, images, scripts, styles, criticalCss, buildcopy, buildhtml, cssFileVersion, jsFileVersion, filesVersionHtml, deleteOldCss, deleteOldJs, criticalCssInject)
 export default series(scripts, styles, images, parallel(browsersync, startwatch))
-
-// export let dep = series(da);
