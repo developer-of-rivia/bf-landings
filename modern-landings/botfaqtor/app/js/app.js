@@ -1,20 +1,20 @@
 /* PLUGINS */
 // graph-tabs
-@import 'common/plugins/graph-tabs/script.js';
+@import 'modern-landings/common/plugins/graph-tabs/script.js';
 // lazysizes
-@import 'common/plugins/lazysizes/lazysizes.min.js';
-@import 'common/plugins/lazysizes/ls.bgset.min.js';
+@import 'modern-landings/common/plugins/lazysizes/lazysizes.min.js';
+@import 'modern-landings/common/plugins/lazysizes/ls.bgset.min.js';
 // wowjs
-@import 'common/plugins/wowjs/wow.js';
+@import 'modern-landings/common/plugins/wowjs/wow.js';
 /* ---------------------- WOW JS ---------------------------- */
 wow = new WOW();
 wow.init();
 // accordion
-@import 'common/plugins/accordion/accordion.js';
+@import 'modern-landings/common/plugins/accordion/accordion.js';
 // lazymap
-@import 'common/plugins/lazymap/lazymap.js';
+@import 'modern-landings/common/plugins/lazymap/lazymap.js';
 /* smooth scroll */
-@import 'common/plugins/smooth-scroll/main.js'
+@import 'modern-landings/common/plugins/smooth-scroll/main.js'
 
 
 
@@ -22,13 +22,13 @@ wow.init();
 // not jQuery
 document.addEventListener('DOMContentLoaded', () => {
 	/* ---------------------- MENU ---------------------------- */
-	@import 'common/sections/header/header.js'
+	@import 'modern-landings/common/sections/header/header.js'
     /* ---------------------- TELEGRAM POPUP ---------------------------- */
-    @import 'common/sections/popup/main.js';
+    @import 'modern-landings/common/sections/popup/main.js';
     /* ---------------------- SERVICES TABS ---------------------------- */
-    @import 'common/sections/services-section/services-section-tabs.js';
+    @import 'modern-landings/common/sections/services-section/services-section-tabs.js';
 	/* ROLL NETWORK */
-    @import 'common/sections/roll-network/roll-network.js';
+    @import 'modern-landings/common/sections/roll-network/roll-network.js';
 });
 // jQuery
 $(document).ready(function(){

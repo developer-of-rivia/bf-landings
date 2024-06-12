@@ -1,4 +1,5 @@
-import { deploy }  from 'sftp-sync-deploy';
+import { folderName } from './configs/current_site.js';
+import { deploy } from 'sftp-sync-deploy';
 
 let config = {
     host: '5.188.119.137',            // Required.
@@ -8,7 +9,7 @@ let config = {
     privateKey: 'landinguser', // Optional.
     passphrase: 'oloref91',       // Optional.
     // agent: '/path/to/agent.sock',   // Optional, path to the ssh-agent socket.
-    localDir: 'botfaqtor/dist',               // Required, Absolute or relative to cwd.
+    localDir: `modern-landings/${folderName}/dist`,               // Required, Absolute or relative to cwd.
     remoteDir: 'da',      // Required, Absolute path only.
 };
  
@@ -19,7 +20,7 @@ let options = {
     'src/**/*.spec.ts'
   ],
  excludeMode: 'remove',          // Behavior for excluded files ('remove' or 'ignore'), Default to 'remove'.
- forceUpload: false              // Force uploading all files, Default to false(upload only newer files).
+ forceUpload: true              // Force uploading all files, Default to false(upload only newer files).
 };
  
 deploy(config, options).then(() => {

@@ -1,34 +1,34 @@
 /* PLUGINS */
 // graph-tabs
-@import 'common/plugins/graph-tabs/script.js';
+@import 'modern-landings/common/plugins/graph-tabs/script.js';
 // lazysizes
-@import 'common/plugins/lazysizes/lazysizes.min.js';
-@import 'common/plugins/lazysizes/ls.bgset.min.js';
+@import 'modern-landings/common/plugins/lazysizes/lazysizes.min.js';
+@import 'modern-landings/common/plugins/lazysizes/ls.bgset.min.js';
 // accordion
-@import 'common/plugins/accordion/accordion.js';
+@import 'modern-landings/common/plugins/accordion/accordion.js';
 // lazymap
-@import 'common/plugins/lazymap/lazymap.js';
+@import 'modern-landings/common/plugins/lazymap/lazymap.js';
 /* smooth scroll */
-@import 'common/plugins/smooth-scroll/main.js'
+@import 'modern-landings/common/plugins/smooth-scroll/main.js'
 
 
 /* SECTIONS */
 // not jQuery
 document.addEventListener('DOMContentLoaded', () => {
 	/* ---------------------- MENU ---------------------------- */
-	@import 'common/sections/header/header.js'
+	@import 'modern-landings/common/sections/header/header.js'
     /* ---------------------- TELEGRAM POPUP ---------------------------- */
-    @import 'common/sections/popup/main.js';
+    @import 'modern-landings/common/sections/popup/main.js';
     /* ---------------------- PROT TABS ---------------------------- */
-    @import 'common/sections/prot-section/prot.js';
+    @import 'modern-landings/common/sections/prot-section/prot.js';
     /* ---------------------- SERVICES ---------------------------- */
-    @import 'common/sections/services-section/services-section-tabs.js';
+    @import 'modern-landings/common/sections/services-section/services-section-tabs.js';
 	/* ROLL NETWORK */
-    @import 'common/sections/roll-network/roll-network.js';
+    @import 'modern-landings/common/sections/roll-network/roll-network.js';
 });
 // jQuery
 $(document).ready(function() {
-	@import 'common/sections/calc-section/calc-section2.js';
+	@import 'modern-landings/common/sections/calc-section/calc-section2.js';
 
 	// Результат замера источников трафика
 	$.getJSON("json/top-direct-platforms.json", function (data) {
