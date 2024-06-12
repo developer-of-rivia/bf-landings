@@ -32,12 +32,8 @@ import autoprefixer  from 'autoprefixer'
 import imagemin      from 'gulp-imagemin'
 import changed       from 'gulp-changed'
 import concat        from 'gulp-concat'
-import rsync         from 'gulp-rsync'
-import rsyncSlim	 from 'rsync-slim'
 import {deleteAsync} from 'del'
 import fs			 from 'fs'
-import sftp	from 'gulp-sftp-up4'
-import sftpClean from 'gulp-sftp-clean'
 import plumber from 'gulp-plumber'
 // import terser from 'gulp-terser'
 // import uglifyjs from 'gulp-uglify'
@@ -179,7 +175,7 @@ function startwatch() {
 }
 
 /* экспорты */
-export { scripts, styles, images, deploySFTP }
+export { scripts, styles, images }
 export let assets = series(scripts, styles, images)
 export let build = series(cleandist, images, scripts, styles, criticalCss, buildcopy, buildhtml, cssFileVersion, jsFileVersion, filesVersionHtml, deleteOldCss, deleteOldJs, criticalCssInject)
 export default series(scripts, styles, images, parallel(browsersync, startwatch))

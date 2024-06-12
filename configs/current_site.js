@@ -1,0 +1,1 @@
+let folderName = 'botfaqtor';
