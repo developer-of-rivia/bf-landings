@@ -63,7 +63,7 @@ $(document).ready(function(){
 	}));
 
 
-	$.getJSON("../../data_news.json", function (data_news) {
+	$.getJSON("json/data_news.json", function (data_news) {
 		$.each(data_news, function (i, item_news) {
 			$(".ency__box").append(
 				'<a href="https://botfaqtor.ru' + item_news['post_name'] + '" target="_blank" class="ency__item">' +
