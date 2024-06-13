@@ -10,7 +10,7 @@ let config = {
     passphrase: 'oloref91',       // Optional.
     // agent: '/path/to/agent.sock',   // Optional, path to the ssh-agent socket.
     localDir: `modern-landings/${folderName}/dist`,               // Required, Absolute or relative to cwd.
-    remoteDir: 'da',      // Required, Absolute path only.
+    remoteDir: `modern-landings/${folderName}/dist`,      // Required, Absolute path only.
 };
  
 let options = {
