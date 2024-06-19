@@ -1,4 +1,4 @@
-import { folderName } from './configs/current_site.js';
+import { folderName } from './current_site_dev.js'
 import { deploy } from 'sftp-sync-deploy';
 
 let config = {

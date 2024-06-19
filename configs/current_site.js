@@ -1,1 +1,0 @@
-export let folderName = 'botfaqtor';
