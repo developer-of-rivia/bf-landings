@@ -1,6 +1,7 @@
 /* PLUGINS */
 // lazysizes
-@import 'modern-landings/common/plugins/graph-modal/graph-modal.min.js';
+@import 'modern-landings/common/plugins/graph-modal/graph-modal.js';
+@import 'modern-landings/common/plugins/scroll-lock/scroll-lock.min.js';
 
 
 /* SECTIONS */
