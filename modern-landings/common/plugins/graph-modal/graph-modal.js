@@ -1,4 +1,4 @@
-export default class GraphModal {
+class GraphModal {
   constructor(options) {
     let defaultOptions = {
       isOpen: () => {},
