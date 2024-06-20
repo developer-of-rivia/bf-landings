@@ -26,31 +26,11 @@
 .vacancy-body{
     min-height: 90vh;
     padding: 70px 0;
+    padding-top: 150px;
 }
 .vacancy-container{
     max-width: 1185px;
     margin: 0 auto;
-}
-@media screen and (max-width: 1260px){
-    .vacancy-container{
-        max-width: 960px;
-    }
-}
-@media screen and (max-width: 991px){
-    .vacancy-container{
-        max-width: 720px;
-    }
-}
-@media screen and (max-width: 768px){
-    .vacancy-container{
-        max-width: 500px;
-    }
-}
-@media screen and (max-width: 574px){
-    .vacancy-container{
-        max-width: 100%;
-        padding: 0 15px;
-    }
 }
 .vacancy-wrapper{
     display: flex;
@@ -335,8 +315,6 @@
 .vlist__add-icon_hover{
     background: #F0F0F0;
 }
-
-
 .vlist__add-icon:hover{
     background: #F0F0F0;
 }
@@ -346,18 +324,32 @@
 .vlist__add_active .vlist__add-icon{
     background: #F0F0F0;
 }
-/* modal */
-.graph-modal{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+@media screen and (max-width: 1260px){
+    .vacancy-container{
+        max-width: 960px;
+    }
 }
-.graph-modal__close{
-    top: 25px;
-    right: 25px;
-    width: 15px;
-    height: 15px;
+@media screen and (max-width: 991px){
+    .vacancy-container{
+        max-width: 720px;
+    }
+}
+@media screen and (max-width: 768px){
+    .vacancy-container{
+        max-width: 500px;
+    }
+    .vacancy-body{
+        padding-top: 120px;
+    }
+    .vacancy__thera{
+        margin-top: 10px;
+    }
+}
+@media screen and (max-width: 574px){
+    .vacancy-container{
+        max-width: 100%;
+        padding: 0 15px;
+    }
 }
 /* response modal */
 .response-modal {
@@ -366,7 +358,6 @@
     box-shadow: 0 4px 40px 0 rgba(0,0,0,0.1);
     border-radius: 20px;
     padding: 30px;
-    margin: 0 auto;
 }
 .response__title{
     text-align: center;
@@ -597,11 +588,6 @@
     .response__row{
         flex-direction: column;
     }
-    .graph-modal__container{
-        width: 550px;
-        max-width: 100%;
-        height: auto;
-    }
     .response__cell_50{
         width: 100%;
     }
@@ -654,9 +640,6 @@
     }
     .vacancy__null-text{
         font-size: 16px;
-    }
-    .graph-modal__container{
-        padding: 30px 20px;
     }
     .vlist__add-icon{
         background: none;
