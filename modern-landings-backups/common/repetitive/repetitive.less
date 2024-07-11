@@ -1,0 +1,127 @@
+// button
+.btn{
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	background: #4399FF;
+	box-shadow: 0 0 30px 0 rgba(0, 133, 255, .25);
+	border-radius: 60px;
+	color: #fff;
+	font-size: 20px;
+	font-family: 'Rubik';
+	padding: 14px 20px;
+	font-weight: 500;
+	transition: 0.15s ease;
+	min-width: 130px;
+}
+.btn:hover{
+	background: #006bcf;
+}
+// button 2
+.btn2{
+	height: 70px;
+	background: #fff;
+	border-radius: 10px;
+	box-shadow: 0 4px 40px 0 rgba(0,0,0,0.1);
+	width: 275px;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+	color: #000;
+	transition: 0.15s ease;
+}
+.btn2:hover{
+	text-decoration: underline;
+}
+// link
+.link{
+	color: #4399FF;
+	border-bottom: 1px solid #4399FF;
+	font-family: 'Roboto';
+	font-weight: 500;
+}
+.link:hover{
+	border-color: transparent;
+}
+// title 
+.title {
+	font-weight: 500;
+	font-size: 40px;
+	line-height: 50px;
+	color: #111;
+	text-align: center;
+	line-height: 100%;
+	margin-bottom: 12px;
+}
+.title span {
+	color: #4399FF;
+	font-family: inherit;
+	font-weight: inherit;
+}
+// subtitle
+.subtitle {
+	font-family: Inter;
+	font-size: 25px;
+	color: #111;
+	text-align: center;
+	line-height: 35px;
+	font-weight: 400;
+}
+// input
+.input{
+	height: 56px;
+	border-radius: 10px;
+	background: #F7F9FD;
+	padding-left: 14px;
+	border: none;
+}
+@media screen and (max-width: 991px){
+	.title {
+		font-size: 30px;
+		line-height: 40px;
+	}
+	.subtitle {
+		font-size: 21px;
+		line-height: 31px;
+	}
+}
+@media screen and (max-width: 767px) {
+	.title {
+		font-size: 30px;
+		line-height: 40px;
+	}
+	.btn{
+		font-size: 16px;
+		padding: 10px 20px;
+	}
+}
+@media screen and (max-width: 574px) {
+	.link{
+		border-bottom: none;
+		text-decoration: underline;
+	}
+	.link:hover{
+		text-decoration: none;
+	}
+	.title {
+		font-size: 25px;
+		line-height: 35px;
+	}
+	.subtitle {
+		font-size: 18px;
+		line-height: 150%;
+	}
+	.btn2{
+		font-size: 14px;
+	}
+	.btn2 svg{
+		width: 12px;
+	}
+}
+@media screen and (max-width: 480px) {
+	.subtitle {
+		font-size: 16px;
+		line-height: 130%;
+	}
+}

@@ -1,1 +1,1 @@
-export let folderName = 'vacancy';
+export let folderName = 'yandex-clickfraud-v1';

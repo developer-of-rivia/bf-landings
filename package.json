@@ -24,6 +24,7 @@
 		"browsersync-ssi": "^0.2.4",
 		"cssnano": "^6.0.1",
 		"del": "^7.1.0",
+		"dotenv": "^16.4.5",
 		"gulp": "^4.0.2",
 		"gulp-changed": "^4.0.3",
 		"gulp-concat": "^2.6.1",
@@ -47,6 +48,7 @@
 		"postcss": "^8.4.30",
 		"sass": "^1.68.0",
 		"sftp-sync-deploy": "^0.7.1",
+		"ssh2-sftp-client": "^10.0.3",
 		"terser-webpack-plugin": "^5.3.9",
 		"webpack": "^5.88.2",
 		"webpack-stream": "^7.0.0"

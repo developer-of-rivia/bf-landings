@@ -1,0 +1,80 @@
+/* slideFromRight */
+@keyframes slideFromRight {
+    0% {
+        transform: translate3d(100px, 0px, 0px);
+        opacity: 0;
+    }
+    100% {
+        transform: translate3d(0px, 0px, 0px);
+        opacity: 1;
+    }
+}
+.slideFromRight{
+    transition-property: opacity, transform;
+    animation: slideFromRight 1s cubic-bezier(0.19, 1, 0.22, 1);
+    animation-fill-mode: forwards;
+}
+/* slideFromTop */
+@keyframes slideFromTop {
+    0% {
+        transform: translate3d(0, 100px, 0px);
+        opacity: 0;
+    }
+    100% {
+        transform: translate3d(0px, 0px, 0px);
+        opacity: 1;
+    }
+}
+.slideFromTop{
+    transition-property: opacity, transform;
+    animation: slideFromTop 1s cubic-bezier(0.19, 1, 0.22, 1);
+    animation-fill-mode: forwards;
+}
+/* slideFromBottom */
+@keyframes slideFromBottom {
+    0% {
+        transform: translate3d(0, 100px, 0px);
+        opacity: 0;
+    }
+    100% {
+        transform: translate3d(0px, 0px, 0px);
+        opacity: 1;
+    }
+}
+.slideFromBottom{
+    transition-property: opacity, transform;
+    animation: slideFromBottom 1s cubic-bezier(0.19, 1, 0.22, 1);
+    animation-fill-mode: forwards;
+}
+/* slideFromLeft */
+@keyframes slideFromLeft {
+    0% {
+        transform: translate3d(-100px, 0px, 0px);
+        opacity: 0;
+    }
+    100% {
+        transform: translate3d(0px, 0px, 0px);
+        opacity: 1;
+    }
+}
+.slideFromLeft{
+    transition-property: opacity, transform;
+    animation: slideFromLeft 1s cubic-bezier(0.19, 1, 0.22, 1);
+    animation-fill-mode: forwards;
+}
+/* scaleFromSmall */
+@keyframes scaleFromSmall {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+.scaleFromSmall{
+    transition-property: opacity, transform;
+    animation: scaleFromSmall 1s cubic-bezier(0.19, 1, 0.22, 1);
+    animation-fill-mode: forwards;
+}

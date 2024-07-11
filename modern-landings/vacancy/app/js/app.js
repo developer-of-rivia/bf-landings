@@ -2,6 +2,8 @@
 // lazysizes
 @import 'modern-landings/common/plugins/graph-modal/graph-modal.js';
 @import 'modern-landings/common/plugins/scroll-lock/scroll-lock.min.js';
+// accordion
+@import 'modern-landings/common/plugins/accordion/accordion.js';
 
 
 /* SECTIONS */
@@ -11,9 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	@import 'modern-landings/common/sections/header/header.js'
     /* ---------------------- TELEGRAM POPUP ---------------------------- */
     @import 'modern-landings/common/sections/popup/main.js';
-	/* ROLL NETWORK */
-    @import 'modern-landings/common/sections/roll-network/roll-network.js';
-    /* vlist */
+    // /* vlist */
     let vlistContent = document.querySelectorAll('.vlist__item');
     vlistContent.forEach(vlistContent => {
         let vlistText = vlistContent.querySelector('.vlist__text');
@@ -21,22 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
         let vlistSalary = vlistContent.querySelector('.vlist__salary');
         let vlistIcon = vlistContent.querySelector('.vlist__add-icon');
         let vlistAdd = vlistContent.querySelector('.vlist__add');
-        /* троеточие с меню */
-        // vlistIcon.addEventListener('mouseover', function(){
-        //     vlistAdd.classList.add('vlist__add_active');
-        // })
-        
-        // vlistContent.addEventListener('mouseleave', function(){
-        //     vlistAdd.classList.remove('vlist__add_active');
-        // })
-
-        // window.addEventListener('click', e => {
-        //     const target = e.target
-        //     if (!target.closest('.vlist__add')) {
-        //       vlistAdd.classList.remove('vlist__add_active');
-        //     }
-        // })
-        /* */
         vlistShowmore.addEventListener('click', function() {
             vlistText.classList.toggle('vlist__text_expand');
             vlistSalary.classList.toggle('vlist__salary_open');
@@ -62,6 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
             scrollLock.enablePageScroll($modalScroll);
         }
     });
+	/* --------------- ROLL NETWORK --------------- */
+    @import 'modern-landings/common/sections/roll-network/roll-network.js';
 });
 // jQuery
 $(document).ready(function(){
