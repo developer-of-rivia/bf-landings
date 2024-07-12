@@ -1,9 +1,9 @@
+/* imports */
 let Client = require('ssh2-sftp-client');
 let sftp = new Client();
 let fs = require('fs');
 let path = require('path');
-
-
+/* code */
 const dotenvPath = path.join(__dirname, '..', '.env');
 require('dotenv').config({path: dotenvPath});
 
@@ -15,6 +15,23 @@ const config = {
   passphrase: 'oloref91',       // Optional.
 };
 
+const options = {
+  useFastget: true,
+  filter: (item) => {
+    // console.log(item.includes('images'));
+
+    // return item.type !== 'modern-landings/botfaqtor/dist/images';
+
+    // return !item.name.startsWith('images');
+
+    // const excludeRegex = /^exclude_/;
+    // return !excludeRegex.test(file.name);
+
+    const excludedDirectory = 'images';
+    return !item.includes(`/${excludedDirectory}/`);
+  }
+}
+
 async function main() {
   const client = new Client('upload-test');
   const dst = 'modern-landings-backups';
@@ -25,7 +42,7 @@ async function main() {
     client.on('download', info => {
 console.log(`Listener: Download ${info.source}`);
     });
-    let rslt = await client.downloadDir(src, dst);
+    let rslt = await client.downloadDir(src, dst, options);
     return rslt;
   } finally {
     client.end();
@@ -55,7 +72,6 @@ main()
 // }).then(() => {
 //   return sftp.downloadDir('modern-landings', 'modern-landings-backups', options)
 // });
-
 // let options = {
 //   useFastget: true,
 // }
