@@ -2,8 +2,6 @@
 // lazysizes
 @import 'modern-landings/common/plugins/graph-modal/graph-modal.js';
 @import 'modern-landings/common/plugins/scroll-lock/scroll-lock.min.js';
-// accordion
-@import 'modern-landings/common/plugins/accordion/accordion.js';
 
 
 /* SECTIONS */
@@ -13,7 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
 	@import 'modern-landings/common/sections/header/header.js'
     /* ---------------------- TELEGRAM POPUP ---------------------------- */
     @import 'modern-landings/common/sections/popup/main.js';
-    // /* vlist */
+    /* --------------- ROLL NETWORK --------------- */
+    @import 'modern-landings/common/sections/roll-network/roll-network.js';
+    /* vlist */
     let vlistContent = document.querySelectorAll('.vlist__item');
     vlistContent.forEach(vlistContent => {
         let vlistText = vlistContent.querySelector('.vlist__text');
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
             this.classList.toggle('open-is');
         });
     });
-    /* vacancy-modal */
+    /* --------------- VACANCY-MODAL -------------- */
     let $modalScroll = document.querySelector('.graph-modal');
     const modal = new GraphModal({
         isOpen: (modal) => {
@@ -46,16 +46,79 @@ document.addEventListener('DOMContentLoaded', () => {
             scrollLock.enablePageScroll($modalScroll);
         }
     });
-	/* --------------- ROLL NETWORK --------------- */
-    @import 'modern-landings/common/sections/roll-network/roll-network.js';
+    document.addEventListener("click", function (e) {
+        if(e.target.classList.contains('vlist__respond')){
+            clicked = e.target;
+            thisVacancy = clicked.closest('.vlist__buttons').previousElementSibling.previousElementSibling.querySelector('.vlist__title').textContent;
+            thisVacancy = thisVacancy.trimStart().trimEnd();
+            // console.log(thisVacancy);
+            document.querySelector('.response__form-vacancy-id').setAttribute('value', thisVacancy);
+        }
+    });
 });
 // jQuery
 $(document).ready(function(){
-    /* vacancy-modal */
+    /* ----------- VACANCY-MODAL --------------- */
     $('.vacancy__button').on('click', function(){
         $('.tyformail-modal').removeClass('graph-modal-open fadeInUp animate-open');
     })
     $('.vlist__respond').on('click', function(){
         $('.tyformail-modal').removeClass('graph-modal-open fadeInUp animate-open');
     })
+    /* MAILER */
+    var getUrlParameter = function getUrlParameter(sParam) {
+        var sPageURL = window.location.search.substring(1),
+            sURLVariables = sPageURL.split('&'),
+            sParameterName,
+            i;
+
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+            }
+        }
+    };
+    function getFormData($form) {
+        var config = {};
+        $form.serializeArray().map(function (item) {
+            if (config[item.name]) {
+                if (typeof (config[item.name]) === "string") {
+                    config[item.name] = [config[item.name]];
+                }
+                config[item.name].push(item.value);
+            } else {
+                config[item.name] = item.value;
+            }
+        });
+        var Id = getUrlParameter("id");
+        config["Id"] = Id;
+        var Id = getUrlParameter("h");
+        config["Href"] = Id;
+        var Id = getUrlParameter("r");
+        config["Ref"] = Id;
+        return config;
+    }
+    $('#mailer').submit(function (e) {
+        $form = $(this);
+        var formData = JSON.stringify(getFormData($form));
+
+        $.ajax({
+            type: 'POST',
+            url: 'https://server.botfaqtor.ru/api/Account/send-job-request',
+            contentType: 'application/json; charset=utf-8',
+            cache: false,
+            data: formData,
+            success: function () {
+                // $('.wrtt').html("<div class='ok'>Ваша заявка успешно отправлена! В ближайшее время с вами свяжется наш специалист для уточнения необходимой информации.</div>");
+                $('.response-modal').removeClass('graph-modal-open fadeInUp animate-open');
+                $('.tyformail-modal').addClass('graph-modal-open fadeInUp animate-open');
+                $form[0].reset();
+                ym(49731991,'reachGoal','bfqt20');
+
+            }
+        });
+        e.preventDefault();
+    });
 });
