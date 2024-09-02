@@ -27,6 +27,33 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 // jQuery
 $(document).ready(function(){
+	/* SCRIPTS */
+	// refcookies
+	@import 'modern-landings/common/scripts/refcookies/js.cookie.min.js';
+	//Получаем GET
+    function getGet(name) {
+        var s = window.location.search;
+        s = s.match(new RegExp(name + '=([^&=]+)'));
+        return s ? s[1] : false;
+    }
+    if (getGet('ref')) {
+        var ref = getGet('ref');
+        Cookies.set('ref', ref, {
+            domain: '.botfaqtor.ru',
+            expires: 30
+        });
+    }
+    var cookiesRef = Cookies.get('ref');
+    $(".header__connect").click(function () {
+        if (cookiesRef) {
+			location.href = 'https://botfaqtor.ru/signin?service=tarif-unlimited';
+			//location.href='https://botfaqtor.ru/signin?service=tarif-unlimited&ref='+cookiesRef;
+		} else {
+			location.href = 'https://botfaqtor.ru/signin?service=tarif-unlimited';
+		}
+		return false;
+    });
+	/* */
 	$(window).on("scroll", (function() {
 		if($(".numbers__box").hasClass("animated") && !$(".numbers__box").hasClass("numEnd")) {
 			$(".numbers__item-count").each((function() {

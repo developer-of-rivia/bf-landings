@@ -28,8 +28,34 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 // jQuery
 $(document).ready(function() {
+	/* SCRIPTS */
+	// refcookies
+	@import 'modern-landings/common/scripts/refcookies/js.cookie.min.js';
+	//Получаем GET
+    function getGet(name) {
+        var s = window.location.search;
+        s = s.match(new RegExp(name + '=([^&=]+)'));
+        return s ? s[1] : false;
+    }
+    if (getGet('ref')) {
+        var ref = getGet('ref');
+        Cookies.set('ref', ref, {
+            domain: '.botfaqtor.ru',
+            expires: 30
+        });
+    }
+    var cookiesRef = Cookies.get('ref');
+    $(".header__connect").click(function () {
+        if (cookiesRef) {
+			location.href = 'https://botfaqtor.ru/signin?service=yandex-clickfraud';
+			//location.href='https://botfaqtor.ru/signin?service=yandex-clickfraud&ref='+cookiesRef;
+		} else {
+			location.href = 'https://botfaqtor.ru/signin?service=yandex-clickfraud';
+		}
+		return false;
+    });
+	/* */
 	@import 'modern-landings/common/sections/calc-section/calc-section2.js';
-
 	// Результат замера источников трафика
 	$.getJSON("json/top-direct-platforms.json", function (data) {
 		$.each(data.Items, function (i, Items) {

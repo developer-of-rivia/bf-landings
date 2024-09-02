@@ -22,11 +22,38 @@ document.addEventListener('DOMContentLoaded', () => {
 	/* ROLL NETWORK */
     @import 'modern-landings/common/sections/roll-network/roll-network.js';
 });
+// jQuery
+$(document).ready(function(){
+	/* SCRIPTS */
+	// refcookies
+	@import 'modern-landings/common/scripts/refcookies/js.cookie.min.js';
+	//Получаем GET
+    function getGet(name) {
+        var s = window.location.search;
+        s = s.match(new RegExp(name + '=([^&=]+)'));
+        return s ? s[1] : false;
+    }
+    if (getGet('ref')) {
+        var ref = getGet('ref');
+        Cookies.set('ref', ref, {
+            domain: '.botfaqtor.ru',
+            expires: 30
+        });
+    }
+    var cookiesRef = Cookies.get('ref');
+    $(".header__connect").click(function () {
+        if (cookiesRef) {
+			location.href = 'https://botfaqtor.ru/signin?service=captcha';
+			//location.href='https://botfaqtor.ru/signin?service=captcha&ref='+cookiesRef;
+		} else {
+			location.href = 'https://botfaqtor.ru/signin?service=captcha';
+		}
+		return false;
+    });
+});
 
 
-/* SCRIPTS */
-document.addEventListener('DOMContentLoaded', () => {
-})
+
 
 
 /* WITHOUT EVENT */

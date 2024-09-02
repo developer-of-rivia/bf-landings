@@ -32,7 +32,34 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 // jQuery
 $(document).ready(function(){
-    /* NUMBERS SECTION */
+	/* SCRIPTS */
+	// refcookies
+	@import 'modern-landings/common/scripts/refcookies/js.cookie.min.js';
+	//Получаем GET
+    function getGet(name) {
+        var s = window.location.search;
+        s = s.match(new RegExp(name + '=([^&=]+)'));
+        return s ? s[1] : false;
+    }
+    if (getGet('ref')) {
+        var ref = getGet('ref');
+        Cookies.set('ref', ref, {
+            domain: '.botfaqtor.ru',
+            expires: 30
+        });
+    }
+    var cookiesRef = Cookies.get('ref');
+    $(".header__connect").click(function () {
+        if (cookiesRef) {
+            location.href = 'https://botfaqtor.ru/signin';
+            //location.href='https://botfaqtor.ru/signin?ref='+cookiesRef;
+        } else {
+            location.href = 'https://botfaqtor.ru/signin';
+        }
+        return false;
+    });
+	/* SECTIONS */
+    /* numbers section */
 	$(window).on("scroll", (function() {
 		if($(".botfaqtor__numbers").hasClass("animated") && !$(".botfaqtor__numbers").hasClass("numEnd")) {
 			$(".botfaqtor__numbers-count").each((function() {
@@ -52,17 +79,16 @@ $(document).ready(function(){
 					},
 					complete: function() {
 						t.text(this.Count).css({
-						}), document.querySelector(".botfaqtor__numbers-count--a").innerHTML = e(1232439510),
-							document.querySelector(".botfaqtor__numbers-count--b").innerHTML = e(391507260),
-							document.querySelector(".botfaqtor__numbers-count--c").innerHTML = e(18838),
+						}), document.querySelector(".botfaqtor__numbers-count--a").innerHTML = e(1346083936),
+							document.querySelector(".botfaqtor__numbers-count--b").innerHTML = e(461721700),
+							document.querySelector(".botfaqtor__numbers-count--c").innerHTML = e(20898),
 						$(".botfaqtor__numbers").addClass('numEnd');
 					}
 				})
 			}));
 		}
 	}));
-
-
+	/* news-blog section */
 	$.getJSON("json/data_news.json", function (data_news) {
 		$.each(data_news, function (i, item_news) {
 			$(".ency__box").append(
