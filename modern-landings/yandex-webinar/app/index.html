@@ -69,13 +69,13 @@
 	<!-- --------------------------------- SECTIONS --------------------------------- -->
 	<!-- --------------------------------- SECTIONS --------------------------------- -->
 	<!-- header -->
-	<!--#set var="currentServiceMenu" value="Защита Яндекс Директ" -->
+	<!--#set var="currentServiceMenu" value="Все сервисы защиты от ботов" -->
 	<!--#include virtual="../../common/sections/header/header.html" -->
 	
 	<!-- main -->
 	<!-- main -->
 	<!-- main -->
-	<div class="main">
+	<div class="main" id="main">
 		<div class="container">
 			<div class="main__wrapper">
 				<div class="main__left">
@@ -111,35 +111,35 @@
 					</div>
 				</div>
 				<div class="main__right">
-					<form action="" class="main__form">
+					<form action="" class="main__form" id="main__form">
 						<div class="main__form-title">
 							Запись на вебинар
 						</div>
 						<div class="main__form-inputs">
-							<input type="text" class="main__form-input" placeholder="Имя">
-							<input type="text" class="main__form-input" placeholder="Электронная почта">
-							<input type="text" class="main__form-input" placeholder="Телефон">
+							<input type="text" class="main__form-input" placeholder="Имя" name="mfname">
+							<input type="text" class="main__form-input" placeholder="Электронная почта" name="mfemail">
+							<input type="text" class="main__form-input" placeholder="Телефон" name="mfphone">
 						</div>
 						<div class="main__form-budget">
 							Бюджет компании на рекламу:
 						</div>
 						<div class="main__form-radios">
 							<label class="main__form-radio">
-								<input type="radio" name="main_form" class="main__form-radio-input">
+								<input type="radio" name="mfbudget" class="main__form-radio-input">
 								<div class="main__form-radio-circle"></div>
 								<div class="main__form-radio-text">
 									до 50 тыс. руб / мес
 								</div>
 							</label>
 							<label class="main__form-radio">
-								<input type="radio" name="main_form" class="main__form-radio-input" checked>
+								<input type="radio" name="mfbudget" class="main__form-radio-input" checked>
 								<div class="main__form-radio-circle"></div>
 								<div class="main__form-radio-text">
 									до 100 тыс. руб / мес
 								</div>
 							</label>
 							<label class="main__form-radio">
-								<input type="radio" name="main_form" class="main__form-radio-input">
+								<input type="radio" name="mfbudget" class="main__form-radio-input">
 								<div class="main__form-radio-circle"></div>
 								<div class="main__form-radio-text">
 									более 100 тыс. руб / мес
@@ -147,6 +147,17 @@
 							</label>
 						</div>
 						<button class="main__form-button">Записаться</button>
+						<div class="main__form-overlay">
+							<div class="main__form-overlay-title">
+								Спасибо!
+							</div>
+							<div class="main__form-overlay-text">
+								Ваше сообщение отправлено, <br>свяжемся с вами в рабочее время. <br>
+							</div>
+							<div class="main__form-overlay-time">
+								ПН-ПТ: с 09:00-18:00
+							</div>
+						</div>
 					</form>
 				</div>
 			</div>
@@ -306,7 +317,7 @@
 				</div>
 			</div>
 			<div class="program__button-wrapper">
-				<a href="#" class="program__button">
+				<a href="#main" class="program__button btn">
 					Записаться
 				</a>
 			</div>
