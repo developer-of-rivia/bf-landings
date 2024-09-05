@@ -1,1 +1,1 @@
-export let folderName = 'yandex-webinar';
+export let folderName = 'vebinar0924';

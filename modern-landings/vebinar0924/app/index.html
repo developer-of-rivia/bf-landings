@@ -111,7 +111,7 @@
 					</div>
 				</div>
 				<div class="main__right">
-					<form action="" class="main__form" id="mailer">
+					<form action="mail.php" method="POST" class="main__form">
 						<div class="main__form-title">
 							Запись на вебинар
 						</div>
@@ -125,21 +125,21 @@
 						</div>
 						<div class="main__form-radios">
 							<label class="main__form-radio">
-								<input type="radio" name="mfbudget" class="main__form-radio-input">
+								<input type="radio" name="mfbudget" value="до 50 тыс. руб" class="main__form-radio-input">
 								<div class="main__form-radio-circle"></div>
 								<div class="main__form-radio-text">
 									до 50 тыс. руб / мес
 								</div>
 							</label>
 							<label class="main__form-radio">
-								<input type="radio" name="mfbudget" class="main__form-radio-input" checked>
+								<input type="radio" name="mfbudget" value="до 100 тыс. руб" class="main__form-radio-input" checked>
 								<div class="main__form-radio-circle"></div>
 								<div class="main__form-radio-text">
 									до 100 тыс. руб / мес
 								</div>
 							</label>
 							<label class="main__form-radio">
-								<input type="radio" name="mfbudget" class="main__form-radio-input">
+								<input type="radio" name="mfbudget" value="более 100 тыс. руб" class="main__form-radio-input">
 								<div class="main__form-radio-circle"></div>
 								<div class="main__form-radio-text">
 									более 100 тыс. руб / мес
@@ -152,10 +152,10 @@
 								Спасибо!
 							</div>
 							<div class="main__form-overlay-text">
-								Ваше сообщение отправлено, <br>свяжемся с вами в рабочее время. <br>
+								Ссылка на вебинар будет отправлена вам на почту
 							</div>
 							<div class="main__form-overlay-time">
-								ПН-ПТ: с 09:00-18:00
+								за 2 часа до его начала
 							</div>
 						</div>
 					</form>

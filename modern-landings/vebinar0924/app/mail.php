@@ -4,10 +4,10 @@ require_once('phpmailer/PHPMailerAutoload.php');
 $mail = new PHPMailer;
 $mail->CharSet = 'utf-8';
 
-$name = $_POST['user_name'];
-$phone = $_POST['user_phone'];
-$email = $_POST['user_email'];
-$budget1 = $_POST[''];
+$name = $_POST['mfname'];
+$email = $_POST['mfemail'];
+$phone = $_POST['mfphone'];
+$budget = $_POST['mfbudget'];
 
 //$mail->SMTPDebug = 3;                               // Enable verbose debug output
 
@@ -20,7 +20,7 @@ $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, 
 $mail->Port = 465; // TCP port to connect to / этот порт может отличаться у других провайдеров
 
 $mail->setFrom('yuri_romanov_samping@mail.ru'); // от кого будет уходить письмо?
-$mail->addAddress('yuri_romanov_samping@mail.ru');     // Кому будет уходить письмо 
+$mail->addAddress('samping2money@gmail.com');     // Кому будет уходить письмо 
 //$mail->addAddress('ellen@example.com');               // Name is optional
 //$mail->addReplyTo('info@example.com', 'Information');
 //$mail->addCC('cc@example.com');
@@ -29,9 +29,13 @@ $mail->addAddress('yuri_romanov_samping@mail.ru');     // Кому будет у
 //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
 $mail->isHTML(true);                                  // Set email format to HTML
 
-$mail->Subject = 'Заявка с тестового сайта';
-$mail->Body    = '' .$name . ' оставил заявку, его телефон ' .$phone. '<br>Почта этого пользователя: ' .$email;
+$mail->Subject = 'Заявка на вебинар 09.24';
+$mail->Body = 'Имя - ' . $name . '<br> Email - ' . $email . '<br> Телефон - ' . $phone . '<br> Бюджет - ' . $budget;
 $mail->AltBody = '';
+
+
+var_dump($mail->Body);
+
 
 if(!$mail->send()) {
     echo 'Error';
