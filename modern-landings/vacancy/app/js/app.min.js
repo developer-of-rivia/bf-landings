@@ -379,6 +379,12 @@ $(document).ready(function(){
     $('.vlist__respond').on('click', function(){
         $('.tyformail-modal').removeClass('graph-modal-open fadeInUp animate-open');
     })
+
+
+
+
+
+
     /* MAILER */
     var getUrlParameter = function getUrlParameter(sParam) {
         var sPageURL = window.location.search.substring(1),
@@ -435,4 +441,7 @@ $(document).ready(function(){
         });
         e.preventDefault();
     });
+
+
+    
 });

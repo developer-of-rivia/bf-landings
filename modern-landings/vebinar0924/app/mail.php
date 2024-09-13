@@ -12,15 +12,15 @@ $budget = $_POST['mfbudget'];
 //$mail->SMTPDebug = 3;                               // Enable verbose debug output
 
 $mail->isSMTP();                                      // Set mailer to use SMTP
-$mail->Host = 'smtp.mail.ru';  																							// Specify main and backup SMTP servers
+$mail->Host = 'smtp.yandex.ru';  																							// Specify main and backup SMTP servers
 $mail->SMTPAuth = true;                               // Enable SMTP authentication
-$mail->Username = 'yuri_romanov_samping@mail.ru'; // Ваш логин от почты с которой будут отправляться письма
-$mail->Password = 'kt8rhyif08uxUeWTTBzp'; // Ваш пароль от почты с которой будут отправляться письма
+$mail->Username = 'vebinarbotfaqtor@yandex.ru'; // Ваш логин от почты с которой будут отправляться письма
+$mail->Password = 'ffmgvpyygrdjhimv'; // Ваш пароль от почты с которой будут отправляться письма
 $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
 $mail->Port = 465; // TCP port to connect to / этот порт может отличаться у других провайдеров
 
-$mail->setFrom('yuri_romanov_samping@mail.ru'); // от кого будет уходить письмо?
-$mail->addAddress('samping2money@gmail.com');     // Кому будет уходить письмо 
+$mail->setFrom('vebinarbotfaqtor@yandex.ru'); // от кого будет уходить письмо?
+$mail->addAddress('alavr@botfaqtor.ru');     // Кому будет уходить письмо 
 //$mail->addAddress('ellen@example.com');               // Name is optional
 //$mail->addReplyTo('info@example.com', 'Information');
 //$mail->addCC('cc@example.com');
@@ -32,9 +32,6 @@ $mail->isHTML(true);                                  // Set email format to HTM
 $mail->Subject = 'Заявка на вебинар 09.24';
 $mail->Body = 'Имя - ' . $name . '<br> Email - ' . $email . '<br> Телефон - ' . $phone . '<br> Бюджет - ' . $budget;
 $mail->AltBody = '';
-
-
-var_dump($mail->Body);
 
 
 if(!$mail->send()) {

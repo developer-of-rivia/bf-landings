@@ -6,6 +6,8 @@
 @import 'modern-landings/common/plugins/lazymap/lazymap.js';
 /* smooth scroll */
 @import 'modern-landings/common/plugins/smooth-scroll/main.js'
+/* maskPhone */
+@import 'modern-landings/vebinar0924/app/js/maskPhone.js';
 
 
 /* SECTIONS */
@@ -22,9 +24,14 @@ document.addEventListener('DOMContentLoaded', () => {
 	/* отправленная форма */
 	let strGET = window.location.search.replace( '?', '');
 	let mainFormOverlay = document.querySelector('.main__form-overlay');
+    let bottomFormOverlay = document.querySelector('.last__success');
     if(strGET == 'submitted=true'){
 		mainFormOverlay.classList.add('main__form-overlay_active');
+		bottomFormOverlay.classList.add('last__success_active');
 	}
+
+    /* маска для телефона */
+    maskPhone('input[type="tel"]');
 });
 // jQuery
 $(document).ready(function() {

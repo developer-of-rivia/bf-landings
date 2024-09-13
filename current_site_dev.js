@@ -1,1 +1,1 @@
-export let folderName = 'vebinar0924';
+export let folderName = 'my-competitors';
