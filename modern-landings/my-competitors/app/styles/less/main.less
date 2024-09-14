@@ -190,6 +190,9 @@
 	}
 }
 @media screen and (max-width: 574px){
+	.main{
+		padding-top: 110px;
+	}
 	.main__title h1{
 		font-size: 26px;
 	}
@@ -240,6 +243,7 @@
 	font-size: 20px;
 	font-family: 'Inter';
 	line-height: 140%;
+	margin-top: 15px;
 }
 @media screen and (max-width: 1370px){
 	.second__text{
@@ -269,6 +273,9 @@
 	.second__title{
 		text-align: center !important;
 	}
+	.second__wrapper{
+		margin-top: 40px;
+	}
 }
 @media screen and (max-width: 574px){
 	.second__preview{
@@ -282,6 +289,9 @@
 	}
 	.second__wrapper{
 		margin-top: 40px;
+	}
+	.second__icon img{
+		max-width: 100px;
 	}
 }
 /* adv */
@@ -331,6 +341,9 @@
 	}
 }
 @media screen and (max-width: 991px){
+	.adv{
+		padding-top: 110px;
+	}
 	.adv__item{
 		padding: 20px;
 	}
@@ -351,6 +364,11 @@
 	}
 	.adv__item-text{
 		max-width: 100%;
+	}
+}
+@media screen and (max-width: 574px){
+	.adv{
+		padding-top: 80px;
 	}
 }
 /* how */
@@ -400,6 +418,11 @@
 		padding: 32px 46px;
 	}
 }
+@media screen and (max-width: 991px){
+	.how{
+		padding-top: 110px;
+	}
+}
 @media screen and (max-width: 767px){
 	.how__box{
 		flex-wrap: wrap;
@@ -445,6 +468,7 @@
 	position: relative;
 	height: 513px;
 	box-shadow: 0 4px 40px 0 rgba(0,0,0,0.05);
+	border: 1px solid #ececec;
 }
 .mycomps__item-content{
 	position: relative;
@@ -463,6 +487,7 @@
 	color: #111;
 	line-height: 150%;
 	margin-top: 8px;
+	font-family: 'Inter';
 }
 .mycomps__item-text span{
 	color: #999FA9;
@@ -476,6 +501,8 @@
 }
 .mycomps__item_1 .mycomps__item-img{
 	width: 100%;
+	right: -40px;
+	bottom: -45px;
 }
 .mycomps__item_1 .mycomps__item-content,
 .mycomps__item_3 .mycomps__item-content{
@@ -505,6 +532,9 @@
 	}
 }
 @media screen and (max-width: 991px){
+	.mycomps{
+		padding-top: 110px;
+	}
 	.mycomps__item{
 		height: 300px;
 	}
@@ -600,6 +630,7 @@
 	color: #333;
 	font-weight: 500;
 	font-size: 28px;
+	font-family: 'Roboto';
 }
 .face__item-box{
 	margin-top: 24px;
@@ -655,6 +686,9 @@
 	}
 }
 @media screen and (max-width: 991px){
+	.face{
+		padding-top: 110px;
+	}
 	.face__item{
 		padding-bottom: 180px;
 	}
@@ -751,7 +785,7 @@
 	}
 	.get__title{
 		line-height: 40px;
-		margin-bottom: 20px;
+		font-size: 36px;
 	}
 }
 /* qa */
@@ -770,6 +804,8 @@
 /* trust */
 .trust__subtitle{
 	text-align: left;
+	font-size: 20px;
+	margin-top: 6px;
 }
 .trust{
 	padding-top: 160px;
@@ -787,6 +823,9 @@
 	}
 }
 @media screen and (max-width: 991px){
+	.trust{
+		padding-top: 110px;
+	}
 	.trust__item{
 		width: 104px;
 	}
@@ -812,6 +851,16 @@
 .service__item:hover{
 	border-color: #b960f2;
 	box-shadow: 0 4px 40px 0 rgba(161, 100, 245, .2);
+}
+@media screen and (max-width: 1370px){
+	.service__title{
+		font-size: 38px;
+	}
+}
+@media screen and (max-width: 991px){
+	.service__title{
+		font-size: 32px;
+	}
 }
 /* price */
 .price{
@@ -922,6 +971,7 @@
 .price__item-box li p{
 	font-family: 'Roboto';
 	flex-grow: 1;
+	font-size: 14px;
 }
 .price__item-box li p span{
 	font-weight: 700;
@@ -1075,6 +1125,9 @@
 	font-size: 14px;
 }
 @media screen and (max-width: 1370px){
+	.price__title{
+		font-size: 36px;
+	}
 	.price{
 		padding: 50px 0;
 	}
@@ -1102,6 +1155,9 @@
 	}
 }
 @media screen and (max-width: 767px){
+	.price__title{
+		font-size: 32px;
+	}
 	.price__cont{
 		flex-direction: column;
 	}
@@ -1152,6 +1208,20 @@
 		padding: 30px 0;
 	}
 }
+/* qa */
+.qa__subtitle{
+	margin-top: 20px;
+}
+@media screen and (max-width: 1370px){
+	.qa__title{
+		font-size: 36px;
+	}
+}
+@media screen and (max-width: 767px){
+	.qa__title{
+		font-size: 34px;
+	}
+}
 /* переопределения */
 .footer__link.footer__link--hl{
 	color: #B960F2;
@@ -1170,4 +1240,19 @@
 }
 .qa .accordion__content a{
 	color: #B960F2;
+}
+@media screen and (max-width: 1370px){
+	.cont{
+		margin-top: 50px;
+	}
+}
+@media screen and (max-width: 574px){
+	.cont{
+		margin-top: 20px;
+	}
+}
+@media screen and (max-width: 574px){
+	.get__title{
+		font-size: 30px;
+	}
 }
