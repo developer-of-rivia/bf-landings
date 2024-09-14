@@ -575,6 +575,29 @@
 		width: 68%;
 	}
 }
+@media screen and (max-width: 574px){
+	.mycomps__item-content{
+		position: static !important;
+		margin-bottom: 15px;
+	}
+	.mycomps__item-img{
+		position: static !important;
+		margin-left: auto;
+	}
+	.mycomps__item{
+		border: none;
+		box-shadow: none;
+	}
+	.mycomps__item_2 .mycomps__item-img{
+		width: 90%;
+	}
+	.mycomps__item_1 .mycomps__item-img{
+		width: 100%;
+	}
+	.mycomps__item_4 .mycomps__item-img{
+		width: 100%;
+	}
+}
 /* youtube */
 .youtube{
 	padding-top: 160px;
@@ -656,7 +679,7 @@
 }
 .face__item-box li:before{
 	content: '';
-	width: 5px;
+	min-width: 5px;
 	height: 5px;
 	background: #111;
 	border-radius: 50px;
@@ -669,6 +692,9 @@
 	border: 1px solid rgba(0,0,0,0.1);
 	padding: 5px 16px;
 	margin-top: 32px;
+
+	opacity: 0;
+	visibility: hidden;
 }
 .face__item-example:hover{
 	background: rgba(0,0,0,0.1);
@@ -716,10 +742,14 @@
 		padding: 24px;
 	}
 	.face__item-shadow{
-		opacity: .4;
+		opacity: .2;
 	}
 	.face__item-content{
 		max-width: 100%;
+	}
+
+	.face__item-example{
+		display: none;
 	}
 }
 @media screen and (max-width: 574px){
@@ -924,6 +954,11 @@
 @media screen and (max-width: 991px){
 	.service__title{
 		font-size: 32px;
+	}
+}
+@media screen and (max-width: 574px){
+	.service__title{
+		font-size: 26px;
 	}
 }
 /* price */
@@ -1267,6 +1302,11 @@
 	}
 	.price__item-box li{
 		gap: 10px;
+	}
+}
+@media screen and (max-width: 574px){
+	.price__title{
+		font-size: 26px;
 	}
 }
 /* переопределения */
