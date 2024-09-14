@@ -15,6 +15,8 @@
 document.addEventListener('DOMContentLoaded', () => {
 	/* ---------------------- MENU ---------------------------- */
 	@import 'modern-landings/common/sections/header/header.js'
+    // services
+    @import 'modern-landings/common/sections/services-section/services-section.js';
     /* ---------------------- TELEGRAM POPUP ---------------------------- */
     @import 'modern-landings/common/sections/popup/main.js';
 	/* ROLL NETWORK */
