@@ -79,9 +79,9 @@ $(document).ready(function(){
 					},
 					complete: function() {
 						t.text(this.Count).css({
-						}), document.querySelector(".botfaqtor__numbers-count--a").innerHTML = e(1346083936),
-							document.querySelector(".botfaqtor__numbers-count--b").innerHTML = e(461721700),
-							document.querySelector(".botfaqtor__numbers-count--c").innerHTML = e(20898),
+						}), document.querySelector(".botfaqtor__numbers-count--a").innerHTML = e(1447795526),
+							document.querySelector(".botfaqtor__numbers-count--b").innerHTML = e(543051330),
+							document.querySelector(".botfaqtor__numbers-count--c").innerHTML = e(23274),
 						$(".botfaqtor__numbers").addClass('numEnd');
 					}
 				})

@@ -1,1 +1,1 @@
-export let folderName = 'my-competitors';
+export let folderName = 'captcha';

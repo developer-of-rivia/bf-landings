@@ -9,7 +9,9 @@
 // lazymap
 @import 'modern-landings/common/plugins/lazymap/lazymap.js';
 /* smooth scroll */
-@import 'modern-landings/common/plugins/smooth-scroll/main.js'
+@import 'modern-landings/common/plugins/smooth-scroll/main.js';
+/* alt ref */
+@import 'modern-landings/common/plugins/alt-ref/alt-ref.js';
 
 
 /* SECTIONS */
